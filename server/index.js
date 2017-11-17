@@ -8,6 +8,7 @@ const Auth0Strategy = require("passport-auth0");
 const connectionString = require("./config").massive;
 const { domain, clientID, clientSecret } = require("./config.js").auth0;
 const { secret } = require("./config").session;
+const controller = require("./controller");
 
 const port = 3001;
 
@@ -15,9 +16,6 @@ const app = express();
 
 app.use(json());
 app.use(cors());
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 massive(connectionString)
   .then(db => app.set("db", db))
@@ -30,6 +28,8 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 
 passport.use(
   new Auth0Strategy(
@@ -40,7 +40,6 @@ passport.use(
       callbackURL: "/login"
     },
     function(accessToken, refreshToken, extraParams, profile, done) {
-      console.log(app.get("db"));
       app
         .get("db")
         .getUserByAuthId(profile.id)
@@ -50,7 +49,7 @@ passport.use(
               .get("db")
               .createUserByAuth([profile.id, profile.displayName])
               .then(created => {
-                console.log(created);
+                // console.log(created);
                 return done(null, created[0]);
               });
           } else {
@@ -67,6 +66,9 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
+  // User.findById(id, function(err, user) {
+  //   done(err, user);
+  // });
 });
 
 app.get(
@@ -78,20 +80,24 @@ app.get(
   })
 );
 
-app.get("/profile:id", function(req, res) {
+app.get("/api/me", function(req, res) {
+  console.log("api get me pre json:", req.user);
   if (!req.user) return res.status(404);
   res.status(200).json(req.user);
 });
 
-app.get("/favorites", (req, res, next) => {
-  req.app
-    .get("db")
-    .getFavorites()
-    .then(response => {
-      res.json(response);
-    })
-    .catch(console.log);
-});
+// app.get("api/favorites", (req, res, next) => {
+//   req.app
+//     .get("db")
+//     .getFavorites()
+//     .then(response => {
+//       res.json(response);
+//     })
+//     .catch(console.log);
+// });
+
+app.get("/api/favorites", controller.getFavs);
+app.post("/api/favorites", controller.create);
 
 app.listen(port, () => {
   console.log(`Oh geeze Rick, Summer is listening on ${port}`);
