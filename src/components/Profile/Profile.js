@@ -7,29 +7,20 @@ export default class Profile extends Component {
     super(props);
 
     this.state = {
-      beer: [],
-      beerId: 0,
-      favorites: [],
-      user: []
+      beer: []
     };
     // this.addToFavs = this.addToFavs.bind(this);
   }
 
   componentDidMount() {
-    axios
-      .get("https://api.punkapi.com/v2/beers/random")
-      .then(results => {
-        this.setState({
-          beer: results.data,
-          beerId: results.data[0].id
-        });
-      })
-      .catch(console.log);
-
     axios.get("/api/me").then(response => {
-      console.log("req.user", response);
-      if (!response.data) this.setState({ user: null });
-      else this.setState({ user: response.data.id });
+      if (!response.data) this.setState({ userid: null });
+      else this.setState({ userid: response.data.id });
+    });
+
+    axios.get("/api/favorites").then(response => {
+      console.log(response);
+      this.setState({ beer: response.data });
     });
   }
 
@@ -52,9 +43,9 @@ export default class Profile extends Component {
   render() {
     const beer = this.state.beer.map(beer => (
       <ul key="ugh">
-        <li key="nokey">{beer.name}</li>
+        <li key="nokey">{beer.beername}</li>
         <li key="goaway">
-          <img src={beer.image_url} alt="beer" />
+          <img src={beer.beerimg} alt="beer" />
         </li>
       </ul>
     ));

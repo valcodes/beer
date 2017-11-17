@@ -1,1 +1,1 @@
- INSERT INTO favorites (beerid, userid) values($1,$2) RETURNING beerid, userid
+ INSERT INTO favorites (beerid, userid, beerimg, beerdesc, foodpairing, brewerstips, beername) values($1,$2, $3, $4, $5, $6, $7) RETURNING beerid, userid, beerimg, beerdesc, foodpairing, brewerstips, beername
