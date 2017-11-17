@@ -1,16 +1,4 @@
-.landing{
-    display:flex;
-    flex-direction:row;
-
-}
-
-.beer{
-    display:flex;
-    height:400px;
-    background-color:lavender;
-    flex-direction:column;
-}
-.beer img {
-    height:200px;
-    width:200px;
+.landing {
+  display: flex;
+  flex-direction: row;
 }
