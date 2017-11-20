@@ -5,14 +5,12 @@
 
 .navbar {
   display: flex;
-  padding-left: 20px;
-  margin-bottom: 150px;
 }
 
 .tile {
   display: flex;
 }
-
-.button {
-  padding: 5 px 5 px;
+section {
+  background: url("https://i.imgur.com/l4MlYc3.gif");
+  background-size: cover;
 }

@@ -3,17 +3,15 @@ import { Switch, Route } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage/LandingPage";
 import Favorite from "./components/FavoritesList/Favorite";
-import FavoritesList from "./components/FavoritesList/FavoritesList";
-import Profile from "./components/Profile/Profile";
+import Random from "./components/FavoritesList/Random";
+import Favorites from "./components/Profile/Favorites";
 import RandomBeer from "./components/RandomBeer/RandomBeer";
-import Login from "./components/Login";
 
 export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
-    <Route path="/favorites" component={FavoritesList} />
-    <Route path="/profile/:id" component={Profile} />
+    <Route path="/random" component={Random} />
+    <Route path="/Favorites/:id" component={Favorites} />
     <Route path="/random" component={RandomBeer} />
-    <Route path="/login" component={Login} />
   </Switch>
 );

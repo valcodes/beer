@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../FavoritesList/FavoritesList.css";
 
-export default class Profile extends Component {
+export default class Favorites extends Component {
   constructor(props) {
     super(props);
 
@@ -34,9 +34,8 @@ export default class Profile extends Component {
     ));
 
     return (
-      <div className="favs">
-        <div className="vote" />
-        <div className="beer">{beer}</div>
+      <div className="tile is-ancestor">
+        <div className="tile is-6 box">{beer}</div>
       </div>
     );
   }

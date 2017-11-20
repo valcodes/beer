@@ -3,77 +3,58 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+  handleLogin() {
+    window.location.href = "http://localhost:3001/login";
+  }
+
   render() {
     return (
-      //   <nav className="navbar is-black">
-      //     <div className="navbar-brand">
-      //       <span className="navbar-burger burger">
-      //         <span>
-      //           {" "}
-      //           <Link to="/"> Home </Link>
-      //         </span>
-
-      //         <span>
-      //           {" "}
-      //           <Link to="/profile/:id"> Profile </Link>
-      //         </span>
-
-      //         <span>
-      //           {" "}
-      //           <Link to="/favorites">Favorites</Link>
-      //         </span>
-
-      //         <span>
-      //           {" "}
-      //           <Link to="/login">Login</Link>
-      //         </span>
-      //       </span>
-      //       <div className="navbar-menu">
-      //         <Link to="/"> Home </Link>
-
-      //         <Link to="/profile/:id"> Profile </Link>
-      //         <Link to="/favorites">Favorites</Link>
-      //         <Link to="/login">Login</Link>
-      //       </div>
-      //     </div>
-      //   </nav>
-
-      <nav class="navbar is-black">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="../">
-              <img
+      <div class="hero-head">
+        <nav class="navbar is-black">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="../">
+                {/* <img
                 src="http://bulma.io/images/bulma-type-white.png"
                 alt="Logo"
-              />
-            </a>
-            <nav class="navbar-burger" data-target="navbarMenu">
-              <span />
-              <span />
-              <span />
-              <span />
-            </nav>
-          </div>
+              /> */}
+                Logo Here
+              </a>
+              <nav class="navbar-burger" data-target="navbarMenu">
+                <span />
+                <span />
+                <span />
+                <span />
+              </nav>
+            </div>
 
-          <div id="navbarMenu" class="navbar-menu">
-            <div class="navbar-end">
-              <Link class="navbar-item is-active" to="/">
-                Home
-              </Link>
+            <div id="navbarMenu" class="navbar-menu">
+              <div class="navbar-end">
+                <Link class="navbar-item" to="/">
+                  Home
+                </Link>
 
-              <Link class="navbar-item" to="/favorites">
-                Favorites
-              </Link>
-              <Link class="navbar-item" to="/profile/:id">
-                Profile
-              </Link>
-              <Link class="navbar-item" to="/login">
-                Login
-              </Link>
+                <Link class="navbar-item" to="/random">
+                  Random
+                </Link>
+                <Link class="navbar-item" to="/Favorites/:id">
+                  Favorites
+                </Link>
+                <a className="navbar-item " onClick={this.handleLogin}>
+                  Login
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     );
   }
 }
