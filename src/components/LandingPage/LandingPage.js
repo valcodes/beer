@@ -33,14 +33,12 @@ export default class LandingPage extends Component {
     ));
 
     return (
-      <div className="landing">
-        <div className="beer">{beer}</div>
-
-        <Link to="/login">
-          <div className="login">
-            <button>Login Here</button>
-          </div>
-        </Link>
+      <div className="tile is-ancestor box">
+        <div class="tile is-child box">
+          <figure class="image is-1by2 " id="bubbles">
+            {beer}
+          </figure>
+        </div>
       </div>
     );
   }

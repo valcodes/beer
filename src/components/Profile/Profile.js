@@ -9,7 +9,6 @@ export default class Profile extends Component {
     this.state = {
       beer: []
     };
-    // this.addToFavs = this.addToFavs.bind(this);
   }
 
   componentDidMount() {
@@ -24,22 +23,6 @@ export default class Profile extends Component {
     });
   }
 
-  // addToFavs = e => {
-  //   console.log(e.target.value);
-  // };
-
-  // addToFavs() {
-
-  //   this.setState({
-  //     favorites: true
-  //   });
-  // }
-  // addToFavs() {
-  //  axios.post("/api/favorites", { id: this.state.beerId }).then(response => {
-  //     this.setState({ favorites: response.data });
-  //   });
-  // }
-
   render() {
     const beer = this.state.beer.map(beer => (
       <ul key="ugh">
@@ -52,11 +35,7 @@ export default class Profile extends Component {
 
     return (
       <div className="favs">
-        <div className="vote">
-          {/* <button className="up" onClick={this.addToFavs}>
-            LIKE ❤
-          </button> */}
-        </div>
+        <div className="vote" />
         <div className="beer">{beer}</div>
       </div>
     );

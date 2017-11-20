@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage/LandingPage";
+import Favorite from "./components/FavoritesList/Favorite";
 import FavoritesList from "./components/FavoritesList/FavoritesList";
 import Profile from "./components/Profile/Profile";
 import RandomBeer from "./components/RandomBeer/RandomBeer";
