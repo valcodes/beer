@@ -74,14 +74,13 @@ passport.deserializeUser(function(obj, done) {
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/favorites",
-    failureRedirect: "/login",
+    successRedirect: "http://localhost:3000/favorites:id",
+    failureRedirect: "/",
     failureFlash: true
   })
 );
 
 app.get("/api/me", function(req, res) {
-  console.log("api get me pre json:", req.user);
   if (!req.user) return res.status(404);
   res.status(200).json(req.user);
 });

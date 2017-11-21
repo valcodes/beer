@@ -27,12 +27,12 @@ export default class Favorite extends Component {
         console.log(results);
         this.setState({
           beer: results.data,
-          beerId: results.data[0].id,
-          beerimg: results.data[0].image_url,
-          beerdesc: results.data[0].description,
-          foodpairing: results.data[0].food_pairing,
-          brewerstips: results.data[0].brewers_tips,
-          beername: results.data[0].name
+          beerId: results.data.id,
+          beerimg: results.data.image_url,
+          beerdesc: results.data.description,
+          foodpairing: results.data.food_pairing,
+          brewerstips: results.data.brewers_tips,
+          beername: results.data.name
         });
       })
       .catch(console.log);
@@ -62,30 +62,29 @@ export default class Favorite extends Component {
 
   render() {
     console.log(this.state.favorites);
-    const beer = this.state.beer.map(beer => (
-      <ul key="ugh">
-        <li key="nokey">{beer.name}</li>
-        <li key="goaway">
+    const beer = this.state.beer.map((beer, index) => (
+      <ul key={index}>
+        <button className="button is-primary " onClick={this.addToFavs}>
+          LIKE ❤
+        </button>
+        <li>{beer.name}</li>
+        <li>
           <img src={beer.image_url} alt="beer" />
         </li>
       </ul>
     ));
 
     return (
-      <div className="tile is-ancestor ">
-        {/* <div className="tile ">
-         
-        </div> */}
-        <div className="tile is-parent ">
-          <button class="button is-primary " onClick={this.addToFavs}>
+      <div className="tile  ">
+        {/* <div className="tile is-parent ">
+          {/* <button class="button is-primary " onClick={this.addToFavs}>
             LIKE ❤
-          </button>
-          <div class="tile is-child">
-            <figure class="image is-1by2 " id="bubbles">
-              {beer}
-            </figure>
-          </div>
-        </div>
+          </button> */}
+
+        {/* <figure class="image is-1by2 " id="bubbles"> */}
+        {beer}
+        {/* </figure> */}
+        {/* </div> */}
       </div>
     );
   }
