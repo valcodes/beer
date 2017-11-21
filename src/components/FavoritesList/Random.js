@@ -10,17 +10,7 @@ export default class Random extends Component {
 
   render() {
     return (
-      <div className="tile is-ancestor">
-        <Favorite />
-
-        <Favorite />
-
-        <Favorite />
-
-        <Favorite />
-
-        <Favorite />
-
+      <div className="tile is-ancestor" id="bubbles">
         <Favorite />
       </div>
     );
