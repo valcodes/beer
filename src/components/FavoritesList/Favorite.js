@@ -22,7 +22,7 @@ export default class Favorite extends Component {
 
   componentDidMount() {
     axios
-      .get("https://api.punkapi.com/v2/beers/random")
+      .get("https://api.punkapi.com/v2/beers")
       .then(results => {
         console.log(results);
         this.setState({
@@ -72,11 +72,11 @@ export default class Favorite extends Component {
     ));
 
     return (
-      <div className="tile is-ancestor box">
+      <div className="tile is-ancestor ">
         {/* <div className="tile ">
          
         </div> */}
-        <div className="tile is-parent box">
+        <div className="tile is-parent ">
           <button class="button is-primary " onClick={this.addToFavs}>
             LIKE ❤
           </button>

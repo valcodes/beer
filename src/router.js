@@ -12,6 +12,5 @@ export default (
     <Route exact path="/" component={LandingPage} />
     <Route path="/random" component={Random} />
     <Route path="/Favorites/:id" component={Favorites} />
-    <Route path="/random" component={RandomBeer} />
   </Switch>
 );
