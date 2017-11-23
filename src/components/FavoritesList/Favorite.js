@@ -24,15 +24,16 @@ export default class Favorite extends Component {
     axios
       .get("https://api.punkapi.com/v2/beers")
       .then(results => {
-        console.log(results);
-        this.setState({
-          beer: results.data,
-          beerId: results.data.id,
-          beerimg: results.data.image_url,
-          beerdesc: results.data.description,
-          foodpairing: results.data.food_pairing,
-          brewerstips: results.data.brewers_tips,
-          beername: results.data.name
+        results.data.map((element, index) => {
+          this.setState({
+            beer: results.data,
+            beerId: results.data[index].id,
+            beerimg: results.data[index].image_url,
+            beerdesc: results.data[index].description,
+            foodpairing: results.data[index].food_pairing,
+            brewerstips: results.data[index].brewers_tips,
+            beername: results.data[index].name
+          });
         });
       })
       .catch(console.log);
@@ -43,48 +44,48 @@ export default class Favorite extends Component {
     });
   }
 
-  addToFavs() {
+  addToFavs(beer) {
     axios
       .post("http://localhost:3001/api/favorites", {
         userid: this.state.userid,
-        id: this.state.beerId,
-        image_url: this.state.beerimg,
-        description: this.state.beerdesc,
-        food_pairing: this.state.foodpairing,
-        brewers_tips: this.state.brewerstips,
-        name: this.state.beername
+        id: beer.id,
+        image_url: beer.image_url,
+        description: beer.description,
+        food_pairing: beer.food_pairing,
+        brewers_tips: beer.brewers_tips,
+        name: beer.name
       })
       .then(response => {
+        console.log(response);
         this.setState({ favorites: response.data });
       })
       .catch(console.log);
   }
 
   render() {
-    console.log(this.state.favorites);
-    const beer = this.state.beer.map((beer, index) => (
-      <ul key={index}>
-        <button className="button is-primary " onClick={this.addToFavs}>
-          LIKE ❤
-        </button>
-        <li>{beer.name}</li>
-        <li>
-          <img src={beer.image_url} alt="beer" />
-        </li>
-      </ul>
+    const beers = this.state.beer.map((beer, index) => (
+      <div className="tile is-6" key={index}>
+        <ul>
+          <button
+            className="button is-primary"
+            key={index}
+            onClick={() => this.addToFavs(beer)}
+          >
+            LIKE ❤
+          </button>
+
+          <li>{beer.name}</li>
+
+          <li>
+            <img src={beer.image_url} alt="beer" />
+          </li>
+        </ul>
+      </div>
     ));
 
     return (
-      <div className="tile  ">
-        {/* <div className="tile is-parent ">
-          {/* <button class="button is-primary " onClick={this.addToFavs}>
-            LIKE ❤
-          </button> */}
-
-        {/* <figure class="image is-1by2 " id="bubbles"> */}
-        {beer}
-        {/* </figure> */}
-        {/* </div> */}
+      <div className="tile is-ancestor">
+        <div className="tile is-4">{beers}</div>
       </div>
     );
   }

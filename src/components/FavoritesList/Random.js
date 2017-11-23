@@ -5,7 +5,7 @@ import Favorite from "./Favorite";
 export default class Random extends Component {
   render() {
     return (
-      <div className="tile">
+      <div>
         <Favorite />
       </div>
     );

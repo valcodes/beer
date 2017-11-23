@@ -10,6 +10,6 @@ export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
     <Route path="/random" component={Random} />
-    <Route path="/Favorites/:id" component={Favorites} />
+    <Route path="/Favorites" component={Favorites} />
   </Switch>
 );

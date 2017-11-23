@@ -74,7 +74,7 @@ passport.deserializeUser(function(obj, done) {
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/favorites:id",
+    successRedirect: "http://localhost:3000/favorites",
     failureRedirect: "/",
     failureFlash: true
   })
