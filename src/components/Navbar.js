@@ -44,7 +44,7 @@ export default class Navbar extends Component {
                 <Link className="navbar-item" to="/random">
                   Random
                 </Link>
-                <Link className="navbar-item" to="/Favorites/:id">
+                <Link className="navbar-item" to="/Favorites">
                   Favorites
                 </Link>
                 <a className="navbar-item " onClick={this.handleLogin}>

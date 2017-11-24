@@ -64,7 +64,7 @@ export default class Favorite extends Component {
 
   render() {
     const beers = this.state.beer.map((beer, index) => (
-      <div className="tile is-6" key={index}>
+      <div className="beer-container" key={index}>
         <ul>
           <button
             className="button is-primary"
@@ -74,19 +74,17 @@ export default class Favorite extends Component {
             LIKE ❤
           </button>
 
-          <li>{beer.name}</li>
+          <li>
+            <h2>{beer.name}</h2>
+          </li>
 
           <li>
-            <img src={beer.image_url} alt="beer" />
+            <img src={beer.image_url} class="responsive-image" alt="beer" />
           </li>
         </ul>
       </div>
     ));
 
-    return (
-      <div className="tile is-ancestor">
-        <div className="tile is-4">{beers}</div>
-      </div>
-    );
+    return <div className="beer-display">{beers}</div>;
   }
 }
