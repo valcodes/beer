@@ -15,7 +15,8 @@ export default class Favorite extends Component {
       beerdesc: [],
       foodpairing: [],
       brewerstips: [],
-      beername: []
+      beername: [],
+      disabled: false
     };
     this.addToFavs = this.addToFavs.bind(this);
   }
@@ -57,7 +58,11 @@ export default class Favorite extends Component {
       })
       .then(response => {
         console.log(response);
-        this.setState({ favorites: response.data });
+        this.setState({
+          favorites: response.data
+        });
+
+        // disabled: true -cant get it to work with just one item
       })
       .catch(console.log);
   }
@@ -70,6 +75,7 @@ export default class Favorite extends Component {
             className="button is-primary"
             key={index}
             onClick={() => this.addToFavs(beer)}
+            // disabled={this.state.disabled}
           >
             LIKE ❤
           </button>
@@ -79,7 +85,7 @@ export default class Favorite extends Component {
           </li>
 
           <li>
-            <img src={beer.image_url} class="responsive-image" alt="beer" />
+            <img src={beer.image_url} className="responsive-image" alt="beer" />
           </li>
         </ul>
       </div>

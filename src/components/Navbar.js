@@ -21,11 +21,12 @@ export default class Navbar extends Component {
           <div className="container">
             <div className="navbar-brand">
               <a className="navbar-item" href="../">
-                {/* <img
-                src="http://bulma.io/images/bulma-type-white.png"
-                alt="Logo"
-              /> */}
-                Logo Here
+                <img
+                  src="http://res.freestockphotos.biz/pictures/11/11921-illustration-of-a-foamy-mug-of-beer-pv.png"
+                  width="auto"
+                  height="110px"
+                  alt="Logo"
+                />
               </a>
               <nav className="navbar-burger" data-target="navbarMenu">
                 <span />

@@ -47,3 +47,14 @@ section {
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
+
+.pagination {
+  margin-bottom: 3vh;
+}
+.navbar-item {
+  font-weight: bold;
+}
+
+.title h1 {
+  text-shadow: 4px 4px 2px rgba(234, 234, 234, 1);
+}

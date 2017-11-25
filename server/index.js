@@ -66,9 +66,6 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
-  // User.findById(id, function(err, user) {
-  //   done(err, user);
-  // });
 });
 
 app.get(
@@ -97,6 +94,7 @@ app.get("/api/me", function(req, res) {
 
 app.get("/api/favorites", controller.getFavs);
 app.post("/api/favorites", controller.create);
+app.delete("/api/favorites", controller.deleteFavs);
 
 app.listen(port, () => {
   console.log(`Oh geeze Rick, Summer is listening on ${port}`);

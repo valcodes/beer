@@ -9,11 +9,12 @@ export default class LandingPage extends Component {
         <div className="hero-body">
           <div className="container has-text-centered">
             <div className="column is-6 is-offset-3">
-              <h1 className="title">Your Favorite Beer</h1>
-              <h2 className="subtitle">
-                This is a placeholder for some random beer related bullshit i am
-                going to find online
-              </h2>
+              <h1 className="title">
+                <i>
+                  "Milk is for babies. When you grow up you have to drink beer."
+                </i>
+              </h1>
+              <h2 className="subtitle">Arnold Schwarzenegger</h2>
               <div className="box">
                 <div className="field is-grouped">
                   <p className="control is-expanded">
