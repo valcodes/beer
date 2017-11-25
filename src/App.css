@@ -14,3 +14,47 @@ section {
   background: url("https://i.imgur.com/l4MlYc3.gif");
   background-size: cover;
 }
+
+.responsive-image {
+  height: 300px;
+  width: auto;
+  mix-blend-mode: screen;
+
+  /* background: url("https://media.giphy.com/media/b5EVtW4zARZo4/giphy.gif"); */
+}
+.beer-display {
+  position: relative;
+  display: flex;
+
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-family: "Source Code Pro", monospace;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  background-color: off-white;
+}
+
+.beer-container {
+  margin: 10vh 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: break-word;
+}
+.beer-container h2 {
+  max-width: 150px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.pagination {
+  margin-bottom: 3vh;
+}
+.navbar-item {
+  font-weight: bold;
+}
+
+.title h1 {
+  text-shadow: 4px 4px 2px rgba(234, 234, 234, 1);
+}

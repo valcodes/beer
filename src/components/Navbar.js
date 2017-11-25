@@ -16,18 +16,19 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <div class="hero-head">
-        <nav class="navbar is-black">
-          <div class="container">
-            <div class="navbar-brand">
-              <a class="navbar-item" href="../">
-                {/* <img
-                src="http://bulma.io/images/bulma-type-white.png"
-                alt="Logo"
-              /> */}
-                Logo Here
+      <div className="hero-head">
+        <nav className="navbar is-black">
+          <div className="container">
+            <div className="navbar-brand">
+              <a className="navbar-item" href="../">
+                <img
+                  src="http://res.freestockphotos.biz/pictures/11/11921-illustration-of-a-foamy-mug-of-beer-pv.png"
+                  width="auto"
+                  height="110px"
+                  alt="Logo"
+                />
               </a>
-              <nav class="navbar-burger" data-target="navbarMenu">
+              <nav className="navbar-burger" data-target="navbarMenu">
                 <span />
                 <span />
                 <span />
@@ -35,16 +36,16 @@ export default class Navbar extends Component {
               </nav>
             </div>
 
-            <div id="navbarMenu" class="navbar-menu">
-              <div class="navbar-end">
-                <Link class="navbar-item" to="/">
+            <div id="navbarMenu" className="navbar-menu">
+              <div className="navbar-end">
+                <Link className="navbar-item" to="/">
                   Home
                 </Link>
 
-                <Link class="navbar-item" to="/random">
+                <Link className="navbar-item" to="/random">
                   Random
                 </Link>
-                <Link class="navbar-item" to="/Favorites/:id">
+                <Link className="navbar-item" to="/Favorites">
                   Favorites
                 </Link>
                 <a className="navbar-item " onClick={this.handleLogin}>

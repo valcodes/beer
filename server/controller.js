@@ -31,5 +31,15 @@ module.exports = {
       .getFavorites([req.user.id])
       .then(favorites => res.status(200).send(favorites))
       .catch(() => res.status(500).send());
+  },
+
+  deleteFavs: (req, res, next) => {
+    const db = req.app.get("db");
+    const { query } = req;
+
+    db
+      .deleteFromFavs([query.beerid, query.userid])
+      .then(favorites => res.status(200).send(favorites))
+      .catch(() => res.status(500).send());
   }
 };
