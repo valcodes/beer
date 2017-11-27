@@ -10,7 +10,7 @@
 .tile {
   display: flex;
 }
-section {
+.is-fullheight {
   background: url("https://i.imgur.com/l4MlYc3.gif");
   background-size: cover;
 }
@@ -57,4 +57,12 @@ section {
 
 .title h1 {
   text-shadow: 4px 4px 2px rgba(234, 234, 234, 1);
+}
+
+.modal {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.modal-card {
+  background-color: white;
 }
