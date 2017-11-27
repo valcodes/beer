@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../FavoritesList/FavoritesList.css";
 
 export default class Favorites extends Component {
   constructor(props) {
