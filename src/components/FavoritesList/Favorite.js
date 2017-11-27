@@ -9,6 +9,7 @@ export default class Favorite extends Component {
       beer: [],
       beerId: 0,
       favorites: [],
+      favId: null,
       userid: [],
       beerimg: [],
       beerdesc: [],
@@ -27,17 +28,17 @@ export default class Favorite extends Component {
     axios
       .get("https://api.punkapi.com/v2/beers")
       .then(results => {
-        results.data.map((element, index) => {
-          this.setState({
-            beer: results.data,
-            beerId: results.data[index].id,
-            beerimg: results.data[index].image_url,
-            beerdesc: results.data[index].description,
-            foodpairing: results.data[index].food_pairing,
-            brewerstips: results.data[index].brewers_tips,
-            beername: results.data[index].name
-          });
+        // results.data.map((element, index) => {
+        this.setState({
+          beer: results.data,
+          beerId: results.data.id,
+          beerimg: results.data.image_url,
+          beerdesc: results.data.description,
+          foodpairing: results.data.food_pairing,
+          brewerstips: results.data.brewers_tips,
+          beername: results.data.name
         });
+        // });
       })
       .catch(console.log);
 
@@ -59,72 +60,116 @@ export default class Favorite extends Component {
         name: beer.name
       })
       .then(response => {
-        console.log(response);
-        this.setState({
-          favorites: response.data
-        });
-
-        // disabled: true -cant get it to work with just one item
+        this.setState({ favId: parseInt(response.data[0].beerid, 10) });
       })
+      // .then(
+      //   axios.get("http://localhost:3001/api/favorites").then(response =>
+      //     this.setState({
+      //       favorites: response.data
+      //     })
+      //   )
+      // )
       .catch(console.log);
   }
-  toggleModal = () => {
+
+  toggleModal = beer => {
+    // console.log(beer);
     if (this.state.active) {
-      this.setState({ active: false, modal: "is-active" });
+      this.setState({
+        active: false,
+        modal: "is-active",
+        image_url: beer.image_url,
+        description: beer.description,
+        food_pairing: beer.food_pairing,
+        brewers_tips: beer.brewers_tips,
+        name: beer.name
+      });
     } else {
       this.setState({ active: true, modal: "modal" });
     }
   };
 
   render() {
-    const beers = this.state.beer.map((beer, index) => (
-      <div className="beer-container" key={index}>
+    console.log(this.state.beer);
+    // this.state.favId != null
+    //   ? console.log(this.state.favId, this.state.beerId)
+    //   : false;
+
+    const beers = this.state.beer.map((beer, index) => {
+      // console.log(beer);
+      return (
+        <div className="beer-container" key={index}>
+          <ul>
+            {this.state.favId !== beer.id ? (
+              <button
+                className="button is-primary"
+                key={index}
+                onClick={() => this.addToFavs(beer)}
+                // disabled={this.state.disabled}
+              >
+                LIKE ❤
+              </button>
+            ) : (
+              <button
+                className="button is-danger"
+                key={index}
+                onClick={() => this.addToFavs(beer)}
+                // disabled={this.state.disabled}
+              >
+                LIKE ❤
+              </button>
+            )}
+
+            <li>
+              <h2>{beer.name}</h2>
+            </li>
+
+            <li>
+              <img
+                onClick={() => this.toggleModal(beer)}
+                src={beer.image_url}
+                className="responsive-image"
+                alt="beer"
+              />
+            </li>
+          </ul>
+        </div>
+      );
+    });
+
+    return (
+      <div>
+        {this.state.modal === "is-active" ? (
+          <div className="beer-display-fixed">{beers}</div>
+        ) : (
+          <div className="beer-display">{beers}</div>
+        )}
         <div className={this.state.modal}>
           <div className="modal-background" />
           <div className="modal-card">
             <header className="modal-card-head">
-              <p className="modal-card-title">{beer.name}</p>
+              <p className="modal-card-title">{this.state.name}</p>
               <button
                 className="delete"
                 aria-label="close"
-                onClick={this.toggleModal}
+                onClick={() => this.toggleModal(this.state.beer)}
               />
             </header>
             <section className="modal-card-body">
-              <img src={beer.image_url} height="200px" width="auto" />
-              <p>{beer.description}</p>
-              <p>{beer.food_pairing}</p>
-              <p>{beer.brewers_tips}</p>
+              <img
+                className="beer-img"
+                src="http://www.coralbayspirits.com/images/Beer-&-Keg-Spout-Pouring.gif"
+              />
+              <p className="popups">Description: {this.state.description}</p>
+
+              <p className="popups">Food pairing: {this.state.food_pairing}</p>
+
+              <p className="popups">Brewers tips: {this.state.brewers_tips}</p>
             </section>
             <footer className="modal-card-foot" />
           </div>
         </div>
-        <ul>
-          <button
-            className="button is-primary"
-            key={index}
-            onClick={() => this.addToFavs(beer)}
-            // disabled={this.state.disabled}
-          >
-            LIKE ❤
-          </button>
-
-          <li>
-            <h2>{beer.name}</h2>
-          </li>
-
-          <li>
-            <img
-              onClick={this.toggleModal}
-              src={beer.image_url}
-              className="responsive-image"
-              alt="beer"
-            />
-          </li>
-        </ul>
       </div>
-    ));
-
-    return <div className="beer-display">{beers}</div>;
+    );
   }
 }

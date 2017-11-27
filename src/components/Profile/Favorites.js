@@ -39,7 +39,6 @@ export default class Favorites extends Component {
         this.setState({
           beer: newFavorites
         });
-        console.log(beer.beerid);
       });
   }
 
