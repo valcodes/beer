@@ -33,6 +33,7 @@ export default class Navbar extends Component {
                 <span />
                 <span />
                 <span />
+                <span />
               </nav>
             </div>
 
@@ -47,6 +48,9 @@ export default class Navbar extends Component {
                 </Link>
                 <Link className="navbar-item" to="/Favorites">
                   Favorites
+                </Link>
+                <Link className="navbar-item" to="/cart">
+                  Cart
                 </Link>
                 <a className="navbar-item " onClick={this.handleLogin}>
                   Login

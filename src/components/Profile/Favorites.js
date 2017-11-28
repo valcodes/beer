@@ -14,10 +14,12 @@ export default class Favorites extends Component {
       description: [],
       food_pairing: [],
       brewers_tips: [],
-      name: []
+      name: [],
+      selectbeer: {}
     };
     this.removeFavorite = this.removeFavorite.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -27,14 +29,32 @@ export default class Favorites extends Component {
     });
 
     axios.get("/api/favorites").then(response => {
-      console.log(response);
+      // console.log(response);
       this.setState({ beer: response.data });
     });
 
-    axios.get("/api/me").then(response => {
-      if (!response.data) this.setState({ userid: null });
-      else this.setState({ userid: response.data.id });
-    });
+    // axios.get("/api/me").then(response => {
+    //   if (!response.data) this.setState({ userid: null });
+    //   else this.setState({ userid: response.data.id });
+    // });
+  }
+
+  addToCart(beer) {
+    console.log(beer);
+    axios
+      .post("http://localhost:3001/api/shoppingcart", {
+        beerid: beer.beerid,
+        userid: beer.userid,
+        beerimg: beer.beerimg,
+        beerdesc: beer.beerdesc,
+        foodpairing: beer.foodpairing,
+        brewerstips: beer.brewerstips,
+        beername: beer.beername
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(console.log);
   }
   removeFavorite(beer) {
     axios
@@ -55,8 +75,9 @@ export default class Favorites extends Component {
       this.setState({
         active: false,
         modal: "is-active",
+        selectbeer: beer,
         image_url: beer.beerimg,
-        description: beer.desc,
+        description: beer.beerdesc,
         food_pairing: beer.foodpairing,
         brewers_tips: beer.brewerstips,
         name: beer.beername
@@ -77,7 +98,9 @@ export default class Favorites extends Component {
           >
             Remove
           </button>
-          <li>{beer.beername}</li>
+          <li>
+            <h2>{beer.beername}</h2>
+          </li>
           <li>
             <img
               onClick={() => this.toggleModal(beer)}
@@ -91,7 +114,7 @@ export default class Favorites extends Component {
     ));
 
     return (
-      <div>
+      <div className="background">
         {this.state.modal === "is-active" ? (
           <div className="beer-display-fixed">{beer}</div>
         ) : (
@@ -111,7 +134,8 @@ export default class Favorites extends Component {
             <section className="modal-card-body">
               <img
                 className="beer-img"
-                src="http://www.coralbayspirits.com/images/Beer-&-Keg-Spout-Pouring.gif"
+                alt="beer"
+                src="http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
               />
               <p className="popups">Description: {this.state.description}</p>
 
@@ -120,7 +144,13 @@ export default class Favorites extends Component {
               <p className="popups">Brewers tips: {this.state.brewers_tips}</p>
             </section>
             <footer className="modal-card-foot">
-              <button className="warning">Add to Cart</button>
+              <button
+                className="button is-warning"
+                key={this.state.beer.beerid}
+                onClick={() => this.addToCart(this.state.selectbeer)}
+              >
+                Add to Cart
+              </button>
             </footer>
           </div>
         </div>

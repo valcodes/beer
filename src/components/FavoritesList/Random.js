@@ -9,7 +9,7 @@ export default class Random extends Component {
         <div>
           <Favorite />
         </div>
-        <nav className="pagination" role="navigation" aria-label="pagination">
+        <nav className="pagination" aria-label="pagination">
           <a
             className="pagination-previous"
             title="This is the first page"

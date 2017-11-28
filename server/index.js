@@ -82,19 +82,12 @@ app.get("/api/me", function(req, res) {
   res.status(200).json(req.user);
 });
 
-// app.get("api/favorites", (req, res, next) => {
-//   req.app
-//     .get("db")
-//     .getFavorites()
-//     .then(response => {
-//       res.json(response);
-//     })
-//     .catch(console.log);
-// });
-
 app.get("/api/favorites", controller.getFavs);
 app.post("/api/favorites", controller.create);
 app.delete("/api/favorites", controller.deleteFavs);
+app.post("/api/shoppingcart", controller.createCart);
+app.delete("/api/shoppingcart", controller.deleteCart);
+app.get("/api/shoppingcart", controller.getCart);
 
 app.listen(port, () => {
   console.log(`Oh geeze Rick, Summer is listening on ${port}`);

@@ -31,7 +31,9 @@
   text-align: center;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  background-color: off-white;
+  /* background-color: white; */
+  margin-left: 15vh;
+  margin-right: 15vh;
 }
 
 .beer-display-fixed {
@@ -43,7 +45,7 @@
   text-align: center;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  background-color: off-white;
+  /* background-color: white; */
 }
 
 .beer-container {
@@ -57,6 +59,8 @@
   max-width: 150px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  font-weight: bold;
+  margin-top: 2vh;
 }
 
 .pagination {
@@ -94,4 +98,64 @@
 .beer-img {
   width: auto;
   height: 200px;
+}
+
+/* .background {
+  background: url("https://media.giphy.com/media/uCXpE3OPRbR6w/giphy.gif");
+  background-size: cover;
+} */
+img {
+  height: 400px;
+  width: auto;
+}
+
+.shopping-cart-product-container {
+  display: flex;
+  margin: 5vh 0;
+  font-family: "Source Code Pro", monospace;
+}
+
+.shopping-cart-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.shopping-cart-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5vh;
+}
+
+.shopping-cart-container h1 {
+  font-size: 30px;
+  margin: 3vh 0;
+}
+
+.shopping-cart-container h2 {
+  font-size: 30px;
+  margin: 3vh 0;
+}
+
+.shopping-cart-container h3 {
+  font-size: 24px;
+  margin-bottom: 3vh;
+}
+
+.shopping-cart-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopping-cart-button {
+  height: 50px;
+}
+
+.go-buy-something {
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 102px);
 }

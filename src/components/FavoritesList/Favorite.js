@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Modal from "../Modal";
+
 export default class Favorite extends Component {
   constructor(props) {
     super(props);
@@ -62,13 +62,6 @@ export default class Favorite extends Component {
       .then(response => {
         this.setState({ favId: parseInt(response.data[0].beerid, 10) });
       })
-      // .then(
-      //   axios.get("http://localhost:3001/api/favorites").then(response =>
-      //     this.setState({
-      //       favorites: response.data
-      //     })
-      //   )
-      // )
       .catch(console.log);
   }
 
@@ -90,13 +83,10 @@ export default class Favorite extends Component {
   };
 
   render() {
-    console.log(this.state.beer);
-    // this.state.favId != null
-    //   ? console.log(this.state.favId, this.state.beerId)
-    //   : false;
+    // console.log(this.state.beer);
 
     const beers = this.state.beer.map((beer, index) => {
-      // console.log(beer);
+      console.log(beer);
       return (
         <div className="beer-container" key={index}>
           <ul>
@@ -116,7 +106,7 @@ export default class Favorite extends Component {
                 onClick={() => this.addToFavs(beer)}
                 // disabled={this.state.disabled}
               >
-                LIKE ❤
+                ❤
               </button>
             )}
 
@@ -138,11 +128,14 @@ export default class Favorite extends Component {
     });
 
     return (
-      <div>
+      <div className="background">
         {this.state.modal === "is-active" ? (
           <div className="beer-display-fixed">{beers}</div>
         ) : (
-          <div className="beer-display">{beers}</div>
+          <div className="beer-display">
+            {beers}
+            {/* {console.log(this.state.beer)} */}
+          </div>
         )}
         <div className={this.state.modal}>
           <div className="modal-background" />
@@ -158,7 +151,8 @@ export default class Favorite extends Component {
             <section className="modal-card-body">
               <img
                 className="beer-img"
-                src="http://www.coralbayspirits.com/images/Beer-&-Keg-Spout-Pouring.gif"
+                alt="beer"
+                src="http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
               />
               <p className="popups">Description: {this.state.description}</p>
 
