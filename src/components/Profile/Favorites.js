@@ -54,6 +54,7 @@ export default class Favorites extends Component {
       .then(response => {
         console.log(response);
       })
+      .then(alert("Added to Cart"))
       .catch(console.log);
   }
   removeFavorite(beer) {

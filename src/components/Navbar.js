@@ -1,20 +1,27 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { userid: [] };
 
     this.handleLogin = this.handleLogin.bind(this);
   }
   handleLogin() {
     window.location.href = "http://localhost:3001/login";
   }
+  componentDidMount() {
+    axios.get("/api/me").then(response => {
+      if (!response.data) this.setState({ userid: null });
+      else this.setState({ userid: response.data.id });
+    });
+  }
 
   render() {
+    console.log(this.state.userid);
     return (
       <div className="hero-head">
         <nav className="navbar is-black">
@@ -53,7 +60,7 @@ export default class Navbar extends Component {
                   Cart
                 </Link>
                 <a className="navbar-item " onClick={this.handleLogin}>
-                  Login
+                  {this.state.userid.length !== 0 ? " Logout" : "Login"}
                 </a>
               </div>
             </div>

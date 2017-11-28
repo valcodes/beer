@@ -46,10 +46,10 @@ export default class ShoppingCart extends Component {
     let shoppingCartDisplay = this.state.beer.map((element, index) => {
       return (
         <div className="shopping-cart-product-container" key={index}>
-          <img src={element.image_url} alt="" />
+          <img src={element.beerimg} alt="" />
           <div className="shopping-cart-info">
-            <h2>{element.name}</h2>
-            <h2>{"$" + element.price + ".00"}</h2>
+            <h2>{element.beername}</h2>
+            <h2>{"$" + Math.floor(Math.random() * 13 + 3) + ".00"}</h2>
             <div className="shopping-cart-button-container">
               <button
                 className="shopping-cart-button"
@@ -63,14 +63,18 @@ export default class ShoppingCart extends Component {
       );
     });
     return (
-      <div className="shopping-cart-container">
-        {shoppingCartDisplay[0] ? (
-          shoppingCartDisplay
-        ) : (
-          <div className="go-buy-something">
-            <h1>Your shopping cart is empty! Go get some beer!</h1>
-          </div>
-        )}
+      <div>
+        <div className="shopping-cart-container">
+          {shoppingCartDisplay[0] ? (
+            shoppingCartDisplay
+          ) : (
+            <div className="go-buy-something">
+              <h1>Your shopping cart is empty! Go get some beer!</h1>
+            </div>
+          )}
+        </div>
+
+        <button>checkout</button>
       </div>
     );
   }
