@@ -41,5 +41,49 @@ module.exports = {
       .deleteFromFavs([query.beerid, query.userid])
       .then(favorites => res.status(200).send(favorites))
       .catch(() => res.status(500).send());
+  },
+
+  createCart: (req, res, next) => {
+    const db = req.app.get("db");
+    const {
+      beerid,
+      userid,
+      beerimg,
+      beerdesc,
+      foodpairing,
+      brewerstips,
+      beername
+    } = req.body;
+    console.log(req.body);
+    db
+      .addToCart([
+        beerid,
+        userid,
+        beerimg,
+        beerdesc,
+        foodpairing,
+        brewerstips,
+        beername
+      ])
+      .then(shoppingcart => res.status(200).send(shoppingcart))
+      .catch(err => res.status(500).send(err));
+  },
+
+  deleteCart: (req, res, next) => {
+    const db = req.app.get("db");
+    const { query } = req;
+
+    db
+      .deleteFromCart([query.beerid, query.userid])
+      .then(shoppingcart => res.status(200).send(shoppingcart))
+      .catch(() => res.status(500).send());
+  },
+
+  getCart: (req, res, next) => {
+    const db = req.app.get("db");
+    db
+      .getShoppingCart([req.user.id])
+      .then(shoppingcart => res.status(200).send(shoppingcart))
+      .catch(() => res.status(500).send());
   }
 };
