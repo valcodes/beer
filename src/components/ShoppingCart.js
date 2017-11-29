@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Checkout from "./Checkout";
+import "../App.css";
 
 export default class ShoppingCart extends Component {
   constructor(props) {
@@ -43,28 +45,56 @@ export default class ShoppingCart extends Component {
   }
 
   render() {
+    // let shoppingCartDisplay = this.state.beer.map((element, index) => {
+    //   return (
+    //     <div className="shopping-cart-product-container" key={index}>
+    //       <img src={element.beerimg} alt="" />
+    //       <div className="shopping-cart-info">
+    //         <h2>{element.beername}</h2>
+    //         <h2>{"$" + Math.floor(Math.random() * 13 + 3) + ".00"}</h2>
+    //         <div className="shopping-cart-button-container">
+    //           <button
+    //             className="shopping-cart-button"
+    //             onClick={() => this.removeFromShoppingCart(element)}
+    //           >
+    //             Remove From Shopping Cart
+    //           </button>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   );
+    // });
     let shoppingCartDisplay = this.state.beer.map((element, index) => {
       return (
-        <div className="shopping-cart-product-container" key={index}>
-          <img src={element.beerimg} alt="" />
-          <div className="shopping-cart-info">
-            <h2>{element.beername}</h2>
-            <h2>{"$" + Math.floor(Math.random() * 13 + 3) + ".00"}</h2>
-            <div className="shopping-cart-button-container">
-              <button
-                className="shopping-cart-button"
-                onClick={() => this.removeFromShoppingCart(element)}
-              >
-                Remove From Shopping Cart
-              </button>
-            </div>
+        <div className="columns is-multiline" key={index}>
+          <div className="column is-one-fifth">
+            <h3>{element.beername}</h3>
+          </div>
+          <div className="column is-one-fifth">{element.beerdesc}</div>
+
+          <div className="column is-one-fifth">
+            <h3>{"$" + Math.floor(Math.random() * 13 + 3) + ".00"}</h3>
+          </div>
+
+          <div className="column is-one-fifth">
+            <img src={element.beerimg} alt="" className="product-tile__logo" />
+          </div>
+          <div className="column is-one-fifth">
+            <button
+              className="button is-warning"
+              onClick={() => this.removeFromShoppingCart(element)}
+            >
+              Remove
+            </button>
           </div>
         </div>
       );
     });
+
     return (
       <div>
-        <div className="shopping-cart-container">
+        {/* <div className="shopping-cart-container"> */}
+        <div className="column">
           {shoppingCartDisplay[0] ? (
             shoppingCartDisplay
           ) : (
@@ -72,9 +102,18 @@ export default class ShoppingCart extends Component {
               <h1>Your shopping cart is empty! Go get some beer!</h1>
             </div>
           )}
+          <Checkout
+            name={"Secure Payment"}
+            description={"Thank you for shopping with us"}
+            amount={1}
+          />
         </div>
 
-        <button>checkout</button>
+        {/* <Checkout
+          name={"Secure Payment"}
+          description={"Thank you for shopping with us"}
+          amount={1}
+        /> */}
       </div>
     );
   }

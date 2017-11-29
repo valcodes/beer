@@ -10,7 +10,7 @@ module.exports = {
       brewers_tips,
       name
     } = req.body;
-    console.log(req.body);
+
     db
       .createFavorites([
         id,
@@ -54,7 +54,7 @@ module.exports = {
       brewerstips,
       beername
     } = req.body;
-    console.log(req.body);
+
     db
       .addToCart([
         beerid,

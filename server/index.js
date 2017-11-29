@@ -9,10 +9,14 @@ const connectionString = require("./config").massive;
 const { domain, clientID, clientSecret } = require("./config.js").auth0;
 const { secret } = require("./config").session;
 const controller = require("./controller");
-
+const SERVER_CONFIGS = require("./constants/server");
+const configureServer = require("./server");
+const configureRoutes = require("./routes");
 const port = 3001;
 
 const app = express();
+configureServer(app);
+configureRoutes(app);
 
 app.use(json());
 app.use(cors());
@@ -89,6 +93,6 @@ app.post("/api/shoppingcart", controller.createCart);
 app.delete("/api/shoppingcart", controller.deleteCart);
 app.get("/api/shoppingcart", controller.getCart);
 
-app.listen(port, () => {
-  console.log(`Oh geeze Rick, Summer is listening on ${port}`);
+app.listen(SERVER_CONFIGS.PORT, () => {
+  console.log(`Oh geeze Rick, Summer is listening on ${SERVER_CONFIGS.PORT}`);
 });

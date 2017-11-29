@@ -104,13 +104,15 @@
   background: url("https://media.giphy.com/media/uCXpE3OPRbR6w/giphy.gif");
   background-size: cover;
 } */
-img {
-  height: 400px;
+.column img {
+  height: 100px;
   width: auto;
 }
 
-.shopping-cart-product-container {
+/* .shopping-cart-product-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 5vh 0;
   font-family: "Source Code Pro", monospace;
 }
@@ -118,6 +120,7 @@ img {
 .shopping-cart-container {
   position: relative;
   display: flex;
+
   justify-content: space-around;
   flex-wrap: wrap;
 }
@@ -152,10 +155,13 @@ img {
 
 .shopping-cart-button {
   height: 50px;
-}
+} */
 
 .go-buy-something {
   display: flex;
   align-items: center;
   height: calc(100vh - 102px);
+}
+.column {
+  height: 150px;
 }
