@@ -81,6 +81,12 @@ app.get(
   })
 );
 
+app.get("/api/logout", (req, res) => {
+  req.logout();
+  res.redirect("http://localhost:3000/");
+});
+///original setting was redirecting to localhost 3001, workaround^^ , also in navbar
+
 app.get("/api/me", function(req, res) {
   if (!req.user) return res.status(404);
   res.status(200).json(req.user);

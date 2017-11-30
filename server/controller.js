@@ -52,7 +52,8 @@ module.exports = {
       beerdesc,
       foodpairing,
       brewerstips,
-      beername
+      beername,
+      beerprice
     } = req.body;
 
     db
@@ -63,7 +64,8 @@ module.exports = {
         beerdesc,
         foodpairing,
         brewerstips,
-        beername
+        beername,
+        beerprice
       ])
       .then(shoppingcart => res.status(200).send(shoppingcart))
       .catch(err => res.status(500).send(err));

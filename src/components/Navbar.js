@@ -21,7 +21,7 @@ export default class Navbar extends Component {
   }
 
   render() {
-    console.log(this.state.userid);
+    // console.log(this.state.userid);
     return (
       <div className="hero-head">
         <nav className="navbar is-black">
@@ -60,7 +60,11 @@ export default class Navbar extends Component {
                   Cart
                 </Link>
                 <a className="navbar-item " onClick={this.handleLogin}>
-                  {this.state.userid.length !== 0 ? " Logout" : "Login"}
+                  {this.state.userid.length !== 0 ? (
+                    <a href="http://localhost:3001/api/logout"> Logout </a>
+                  ) : (
+                    "Login"
+                  )}
                 </a>
               </div>
             </div>

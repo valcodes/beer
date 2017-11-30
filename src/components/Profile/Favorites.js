@@ -32,11 +32,6 @@ export default class Favorites extends Component {
       // console.log(response);
       this.setState({ beer: response.data });
     });
-
-    // axios.get("/api/me").then(response => {
-    //   if (!response.data) this.setState({ userid: null });
-    //   else this.setState({ userid: response.data.id });
-    // });
   }
 
   addToCart(beer) {
@@ -49,7 +44,8 @@ export default class Favorites extends Component {
         beerdesc: beer.beerdesc,
         foodpairing: beer.foodpairing,
         brewerstips: beer.brewerstips,
-        beername: beer.beername
+        beername: beer.beername,
+        beerprice: Math.floor(Math.random() * 13 + 3)
       })
       .then(response => {
         console.log(response);
