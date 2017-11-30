@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Checkout from "./Checkout";
+import "../App.css";
 
 export default class ShoppingCart extends Component {
   constructor(props) {
@@ -24,7 +26,9 @@ export default class ShoppingCart extends Component {
     });
     axios.get("/api/shoppingcart").then(response => {
       console.log(response);
-      this.setState({ beer: response.data });
+      this.setState({
+        beer: response.data
+      });
     });
   }
 
@@ -45,26 +49,41 @@ export default class ShoppingCart extends Component {
   render() {
     let shoppingCartDisplay = this.state.beer.map((element, index) => {
       return (
-        <div className="shopping-cart-product-container" key={index}>
-          <img src={element.beerimg} alt="" />
-          <div className="shopping-cart-info">
-            <h2>{element.beername}</h2>
-            <h2>{"$" + Math.floor(Math.random() * 13 + 3) + ".00"}</h2>
-            <div className="shopping-cart-button-container">
-              <button
-                className="shopping-cart-button"
-                onClick={() => this.removeFromShoppingCart(element)}
-              >
-                Remove From Shopping Cart
-              </button>
+        <div className="columns is-multiline" key={index} id="remove">
+          <div className="column is-one-fifth" id="two">
+            <div>
+              <ul>
+                <li>
+                  <strong>{element.beername}</strong>
+                </li>
+                <li>{"$" + element.beerprice + ".00"}</li>
+              </ul>
             </div>
+            <div>
+              <img
+                src={element.beerimg}
+                alt=""
+                className="product-tile__logo"
+              />
+            </div>
+          </div>
+          <div className="column is-auto">{element.beerdesc}</div>
+
+          <div className="column is-one-fifth" id="checkout-remove">
+            <button
+              className="button is-warning"
+              onClick={() => this.removeFromShoppingCart(element)}
+            >
+              Remove
+            </button>
           </div>
         </div>
       );
     });
+
     return (
-      <div>
-        <div className="shopping-cart-container">
+      <div className="columns is-multiline" id="cart-content">
+        <div className="column is-auto">
           {shoppingCartDisplay[0] ? (
             shoppingCartDisplay
           ) : (
@@ -73,8 +92,31 @@ export default class ShoppingCart extends Component {
             </div>
           )}
         </div>
+        <div className="column is-one-fifth" id="checkout">
+          <div>
+            Total: $
+            {this.state.beer.reduce(
+              (total, el) => (total += +el.beerprice),
+              0
+            )}.00
+          </div>
+          <div>
+            <Checkout
+              name={"Secure Payment"}
+              description={"Thank you for shopping with us"}
+              amount={this.state.beer.reduce(
+                (total, el) => (total += +el.beerprice),
+                0
+              )}
+            />
+          </div>
+        </div>
 
-        <button>checkout</button>
+        {/* <Checkout
+          name={"Secure Payment"}
+          description={"Thank you for shopping with us"}
+          amount={1}
+        /> */}
       </div>
     );
   }

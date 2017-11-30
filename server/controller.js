@@ -10,7 +10,7 @@ module.exports = {
       brewers_tips,
       name
     } = req.body;
-    console.log(req.body);
+
     db
       .createFavorites([
         id,
@@ -52,9 +52,10 @@ module.exports = {
       beerdesc,
       foodpairing,
       brewerstips,
-      beername
+      beername,
+      beerprice
     } = req.body;
-    console.log(req.body);
+
     db
       .addToCart([
         beerid,
@@ -63,7 +64,8 @@ module.exports = {
         beerdesc,
         foodpairing,
         brewerstips,
-        beername
+        beername,
+        beerprice
       ])
       .then(shoppingcart => res.status(200).send(shoppingcart))
       .catch(err => res.status(500).send(err));

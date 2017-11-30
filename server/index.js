@@ -9,10 +9,14 @@ const connectionString = require("./config").massive;
 const { domain, clientID, clientSecret } = require("./config.js").auth0;
 const { secret } = require("./config").session;
 const controller = require("./controller");
-
+const SERVER_CONFIGS = require("./constants/server");
+const configureServer = require("./server");
+const configureRoutes = require("./routes");
 const port = 3001;
 
 const app = express();
+configureServer(app);
+configureRoutes(app);
 
 app.use(json());
 app.use(cors());
@@ -77,6 +81,12 @@ app.get(
   })
 );
 
+app.get("/api/logout", (req, res) => {
+  req.logout();
+  res.redirect("http://localhost:3000/");
+});
+///original setting was redirecting to localhost 3001, workaround^^ , also in navbar
+
 app.get("/api/me", function(req, res) {
   if (!req.user) return res.status(404);
   res.status(200).json(req.user);
@@ -89,6 +99,6 @@ app.post("/api/shoppingcart", controller.createCart);
 app.delete("/api/shoppingcart", controller.deleteCart);
 app.get("/api/shoppingcart", controller.getCart);
 
-app.listen(port, () => {
-  console.log(`Oh geeze Rick, Summer is listening on ${port}`);
+app.listen(SERVER_CONFIGS.PORT, () => {
+  console.log(`Oh geeze Rick, Summer is listening on ${SERVER_CONFIGS.PORT}`);
 });
