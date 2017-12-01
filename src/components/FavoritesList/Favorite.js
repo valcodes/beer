@@ -50,7 +50,7 @@ export default class Favorite extends Component {
 
   addToFavs(beer) {
     axios
-      .post("http://localhost:3001/api/favorites", {
+      .post("/api/favorites", {
         userid: this.state.userid,
         id: beer.id,
         image_url: beer.image_url,
@@ -95,7 +95,6 @@ export default class Favorite extends Component {
                 className="button is-primary"
                 key={index}
                 onClick={() => this.addToFavs(beer)}
-                // disabled={this.state.disabled}
               >
                 LIKE ❤
               </button>
@@ -104,7 +103,6 @@ export default class Favorite extends Component {
                 className="button is-danger"
                 key={index}
                 onClick={() => this.addToFavs(beer)}
-                // disabled={this.state.disabled}
               >
                 ❤
               </button>
