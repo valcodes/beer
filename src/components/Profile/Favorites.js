@@ -37,7 +37,7 @@ export default class Favorites extends Component {
   addToCart(beer) {
     console.log(beer);
     axios
-      .post("http://localhost:3001/api/shoppingcart", {
+      .post("/api/shoppingcart", {
         beerid: beer.beerid,
         userid: beer.userid,
         beerimg: beer.beerimg,

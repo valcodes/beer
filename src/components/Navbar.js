@@ -11,7 +11,7 @@ export default class Navbar extends Component {
     this.handleLogin = this.handleLogin.bind(this);
   }
   handleLogin() {
-    window.location.href = "http://localhost:3001/login";
+    window.location.href = "/login";
   }
   componentDidMount() {
     axios.get("/api/me").then(response => {
@@ -61,7 +61,7 @@ export default class Navbar extends Component {
                 </Link>
                 <a className="navbar-item " onClick={this.handleLogin}>
                   {this.state.userid.length !== 0 ? (
-                    <a href="http://localhost:3001/api/logout"> Logout </a>
+                    <a href="/api/logout"> Logout </a>
                   ) : (
                     "Login"
                   )}
