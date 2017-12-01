@@ -154,11 +154,17 @@ export default class Favorite extends Component {
                 alt="beer"
                 src="http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
               />
-              <p className="popups">Description: {this.state.description}</p>
+              <p className="popups">
+                <strong>Description:</strong> {this.state.description}
+              </p>
 
-              <p className="popups">Food pairing: {this.state.food_pairing}</p>
+              <p className="popups">
+                <strong>Food pairing:</strong> {this.state.food_pairing}
+              </p>
 
-              <p className="popups">Brewers tips: {this.state.brewers_tips}</p>
+              <p className="popups">
+                <strong>Brewers tips:</strong> {this.state.brewers_tips}
+              </p>
             </section>
             <footer className="modal-card-foot" />
           </div>

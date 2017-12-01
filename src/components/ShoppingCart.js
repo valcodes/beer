@@ -67,7 +67,7 @@ export default class ShoppingCart extends Component {
               />
             </div>
           </div>
-          <div className="column is-auto">{element.beerdesc}</div>
+          <div className="column is-auto">{element.brewerstips}</div>
 
           <div className="column is-one-fifth" id="checkout-remove">
             <button
@@ -94,7 +94,7 @@ export default class ShoppingCart extends Component {
         </div>
         <div className="column is-one-fifth" id="checkout">
           <div>
-            Total: $
+            <strong> Total:</strong> $
             {this.state.beer.reduce(
               (total, el) => (total += +el.beerprice),
               0
@@ -111,12 +111,6 @@ export default class ShoppingCart extends Component {
             />
           </div>
         </div>
-
-        {/* <Checkout
-          name={"Secure Payment"}
-          description={"Thank you for shopping with us"}
-          amount={1}
-        /> */}
       </div>
     );
   }

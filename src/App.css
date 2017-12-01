@@ -21,6 +21,12 @@
 
   /* background: url("https://media.giphy.com/media/b5EVtW4zARZo4/giphy.gif"); */
 }
+.background {
+  /* background: url("https://media.giphy.com/media/RyrAgBKLtNdGU/giphy.gif"); */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  background-color: #00bc9d1c;
+}
 .beer-display {
   position: relative;
   display: flex;
@@ -30,9 +36,13 @@
   text-align: center;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  /* background-color: white; */
+  background-color: rgba(255, 255, 255, 0.932);
+  background-blend-mode: screen;
   margin-left: 15vh;
   margin-right: 15vh;
+  border: 1px rgba(128, 128, 128, 0.082) solid;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .beer-display-fixed {
@@ -68,6 +78,9 @@
 .navbar-item {
   font-weight: bold;
 }
+.navbar-item a {
+  color: white;
+}
 
 .title h1 {
   text-shadow: 4px 4px 2px rgba(234, 234, 234, 1);
@@ -89,7 +102,7 @@
   border-radius: 4px;
 }
 
-.popups p {
+.modal-card-body p {
   font-weight: bold;
   font-size: 20px;
 }
@@ -122,7 +135,6 @@
   height: 150px;
   overflow: auto;
   /* word-wrap: break-word; */
-  display: flex;
 }
 #checkout-remove {
   display: flex;
