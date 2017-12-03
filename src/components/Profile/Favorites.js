@@ -111,46 +111,63 @@ export default class Favorites extends Component {
     ));
 
     return (
-      <div className="background">
-        {this.state.modal === "is-active" ? (
-          <div className="beer-display-fixed">{beer}</div>
-        ) : (
-          <div className="beer-display">{beer}</div>
-        )}
-        <div className={this.state.modal}>
-          <div className="modal-background" />
-          <div className="modal-card">
-            <header className="modal-card-head">
-              <p className="modal-card-title">{this.state.name}</p>
-              <button
-                className="delete"
-                aria-label="close"
-                onClick={() => this.toggleModal(this.state.beer)}
-              />
-            </header>
-            <section className="modal-card-body">
-              <img
-                className="beer-img"
-                alt="beer"
-                src="http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
-              />
-              <p className="popups">Description: {this.state.description}</p>
-
-              <p className="popups">Food pairing: {this.state.food_pairing}</p>
-
-              <p className="popups">Brewers tips: {this.state.brewers_tips}</p>
-            </section>
-            <footer className="modal-card-foot">
-              <button
-                className="button is-warning"
-                key={this.state.beer.beerid}
-                onClick={() => this.addToCart(this.state.selectbeer)}
-              >
-                Add to Cart
-              </button>
-            </footer>
+      <div>
+        {this.state.userid.length === 0 ? (
+          <div className="checkout-user">
+            <h1>You must be logged in in order to use this feature</h1>
           </div>
-        </div>
+        ) : (
+          <div className="background">
+            {this.state.modal === "is-active" ? (
+              <div className="beer-display-fixed">{beer}</div>
+            ) : (
+              <div className="beer-display">{beer}</div>
+            )}
+            <div className={this.state.modal}>
+              <div className="modal-background" />
+              <div className="modal-card">
+                <header className="modal-card-head">
+                  <p className="modal-card-title">{this.state.name}</p>
+                  <button
+                    className="delete"
+                    aria-label="close"
+                    onClick={() => this.toggleModal(this.state.beer)}
+                  />
+                </header>
+                <section className="modal-card-body">
+                  <img
+                    className="beer-img"
+                    alt="beer"
+                    src="http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
+                  />
+                  <p className="popups">
+                    <strong>Description:</strong> {this.state.description}
+                  </p>
+                  <br />
+
+                  <p className="popups">
+                    <strong>Food pairing:</strong> {this.state.food_pairing}
+                  </p>
+                  <br />
+
+                  <p className="popups">
+                    <strong>Brewers tips: </strong>
+                    {this.state.brewers_tips}
+                  </p>
+                </section>
+                <footer className="modal-card-foot">
+                  <button
+                    className="button is-info"
+                    key={this.state.beer.beerid}
+                    onClick={() => this.addToCart(this.state.selectbeer)}
+                  >
+                    Add to Cart
+                  </button>
+                </footer>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

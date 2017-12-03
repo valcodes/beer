@@ -6,20 +6,47 @@
 .navbar {
   display: flex;
 }
-
-.tile {
-  display: flex;
+.navbar a {
+  color: black;
 }
-.is-fullheight {
-  background: url("https://i.imgur.com/l4MlYc3.gif");
+/* .tile {
+  display: flex;
+} */
+.hero-body {
+  /* background: url("http://theplate.nationalgeographic.com/files/2015/07/1beersausage.gif"); */
+  background: url("https://secondcropcreative.com/cinemagraphs/images/beer-bubbles.gif");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: cover;
 }
-
+.bottom-main {
+  color: black;
+  text-shadow: none;
+  margin-bottom: 10vh;
+  font-size: 30px;
+}
+.title,
+.subtitle {
+  text-shadow: 2px 2px #5f5e5c9c;
+}
+#no-shadow p {
+  color: black;
+  text-shadow: none;
+  font-size: 30px;
+}
+.footer {
+  background: url("https://secondcropcreative.com/cinemagraphs/images/beer-bubbles.gif");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.footer p {
+  color: white;
+}
 .responsive-image {
   height: 300px;
   width: auto;
-
-  /* background: url("https://media.giphy.com/media/b5EVtW4zARZo4/giphy.gif"); */
 }
 .background {
   /* background: url("https://media.giphy.com/media/RyrAgBKLtNdGU/giphy.gif"); */
@@ -75,16 +102,12 @@
 .pagination {
   margin-bottom: 3vh;
 }
-.navbar-item {
+/* .navbar-item {
   font-weight: bold;
 }
 .navbar-item a {
-  color: white;
-}
-
-.title h1 {
-  text-shadow: 4px 4px 2px rgba(234, 234, 234, 1);
-}
+  color: black;
+} */
 
 .modal {
   opacity: 1;
@@ -103,7 +126,7 @@
 }
 
 .modal-card-body p {
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 20px;
 }
 
@@ -149,4 +172,20 @@
   margin: 5vh 5vh;
   border: 1 px gray;
   background-color: rgba(128, 128, 128, 0.055);
+  /* background: url("https://i.imgur.com/iArPfQL.gif"); */
+  background: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/d48fc451222843.58e64d0ee33f7.gif");
+  background-size: cover;
+  color: white;
+  font-weight: bold;
+}
+
+.checkout-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 102px);
+  color: white;
+  background: url("https://i.imgur.com/iArPfQL.gif");
+  background-size: cover;
+  font-size: 30px;
 }

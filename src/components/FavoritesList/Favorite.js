@@ -155,10 +155,12 @@ export default class Favorite extends Component {
               <p className="popups">
                 <strong>Description:</strong> {this.state.description}
               </p>
+              <br />
 
               <p className="popups">
                 <strong>Food pairing:</strong> {this.state.food_pairing}
               </p>
+              <br />
 
               <p className="popups">
                 <strong>Brewers tips:</strong> {this.state.brewers_tips}
