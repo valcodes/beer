@@ -107,6 +107,7 @@ app.delete("/api/favorites", controller.deleteFavs);
 app.post("/api/shoppingcart", controller.createCart);
 app.delete("/api/shoppingcart", controller.deleteCart);
 app.get("/api/shoppingcart", controller.getCart);
+app.get("/api/popular", controller.getPopular);
 
 const path = require("path");
 app.get("*", (req, res) => {
