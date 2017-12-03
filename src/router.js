@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-
+import Newapi from "./components/Newapi";
 import LandingPage from "./components/LandingPage/LandingPage";
 import ShoppingCart from "./components/ShoppingCart";
 import Random from "./components/FavoritesList/Random";
@@ -12,5 +12,6 @@ export default (
     <Route path="/random" component={Random} />
     <Route path="/Favorites" component={Favorites} />
     <Route path="/cart" component={ShoppingCart} />
+    <Route path="/new" component={Newapi} />
   </Switch>
 );
