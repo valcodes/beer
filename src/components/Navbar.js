@@ -35,12 +35,21 @@ export default class Navbar extends Component {
                 alt="Logo"
               />
             </a>
-            <nav className="navbar-burger" data-target="navbarMenu">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
+            <nav
+              className="navbar-burger"
+              data-target="navbarMenu"
+              onClick={() => {
+                let toggle = document.querySelector(".nav-toggle");
+                let menu = document.querySelector(".navbar-menu");
+                toggle.classList.toggle("is-active");
+                menu.classList.toggle("is-active");
+              }}
+            >
+              <span className="nav-toggle" />
+              <span className="nav-toggle" />
+              <span className="nav-toggle" />
+              <span className="nav-toggle" />
+              <span className="nav-toggle" />
             </nav>
           </div>
 
