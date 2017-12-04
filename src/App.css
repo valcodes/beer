@@ -28,6 +28,9 @@
 #shadow {
   text-shadow: 2px 2px #5f5e5c9c;
 }
+#shadow h1 {
+  font-size: 50px;
+}
 #no-shadow p {
   color: black;
   text-shadow: none;
