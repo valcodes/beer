@@ -21,8 +21,6 @@ yarn-debug.log*
 yarn-error.log*
 
 config.js
-
-
- 
 .env
 .env.prod
+dotenv
