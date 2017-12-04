@@ -35,7 +35,7 @@ export default class Favorites extends Component {
   }
 
   addToCart(beer) {
-    console.log(beer);
+    // console.log(beer);
     axios
       .post("/api/shoppingcart", {
         beerid: beer.beerid,
@@ -48,7 +48,7 @@ export default class Favorites extends Component {
         beerprice: Math.floor(Math.random() * 13 + 3)
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
       })
       .then(alert("Added to Cart"))
       .catch(console.log);

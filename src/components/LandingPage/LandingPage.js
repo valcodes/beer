@@ -22,7 +22,7 @@ export default class LandingPage extends Component {
   }
 
   render() {
-    console.log(this.state.beername);
+    // console.log(this.state.beername);
     return (
       <div className="main-page">
         <section className="hero is-info is-medium is-bold">
@@ -41,8 +41,8 @@ export default class LandingPage extends Component {
         <div className="box cta">
           <p className="has-text-centered">
             <span className="tag is-primary">New</span>
-            You now have the ability to purchase your favorite beers directly
-            from our website
+            <nbsp /> <nbsp /> <nbsp />You now have the ability to purchase your
+            favorite beers directly from our website
           </p>
         </div>
 
