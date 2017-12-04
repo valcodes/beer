@@ -86,7 +86,7 @@ export default class Random2 extends Component {
     // console.log(this.state.beer);
 
     const beers = this.state.beer.map((beer, index) => {
-      console.log(beer);
+      // console.log(beer);
       return (
         <div className="beer-container" key={index}>
           <ul>

@@ -199,3 +199,16 @@
   font-size: 40px;
   font-weight: bold;
 }
+
+.card {
+  border-radius: 7px;
+  border: 2px solid #fff;
+}
+
+.button {
+  border-radius: 10px;
+}
+
+.is-alternative {
+  background-color: #f7f7f7;
+}
