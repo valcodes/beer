@@ -9,7 +9,7 @@ export default class Random extends Component {
         <div>
           <Favorite />
         </div>
-        <nav className="pagination" aria-label="pagination">
+        <nav className="pagination " aria-label="pagination">
           <a
             className="pagination-previous"
             title="This is the first page"
@@ -17,24 +17,35 @@ export default class Random extends Component {
           >
             Previous
           </a>
-          <a className="pagination-next">Next page</a>
+          <a className="pagination-next" href="/random2">
+            Next page
+          </a>
           <ul className="pagination-list">
             <li>
               <a
                 className="pagination-link is-current"
                 aria-label="Page 1"
                 aria-current="page"
+                href="/random"
               >
                 1
               </a>
             </li>
             <li>
-              <a className="pagination-link" aria-label="Goto page 2">
+              <a
+                className="pagination-link"
+                aria-label="Goto page 2"
+                href="/random2"
+              >
                 2
               </a>
             </li>
             <li>
-              <a className="pagination-link" aria-label="Goto page 3">
+              <a
+                className="pagination-link"
+                aria-label="Goto page 3"
+                href="/random3"
+              >
                 3
               </a>
             </li>

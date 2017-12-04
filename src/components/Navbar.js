@@ -11,7 +11,8 @@ export default class Navbar extends Component {
     this.handleLogin = this.handleLogin.bind(this);
   }
   handleLogin() {
-    window.location.href = "http://localhost:3001/login";
+    window.location.href = "/login";
+    // window.location.href = "http://localhost:3001/login";
   }
   componentDidMount() {
     axios.get("/api/me").then(response => {
@@ -23,54 +24,61 @@ export default class Navbar extends Component {
   render() {
     // console.log(this.state.userid);
     return (
-      <div className="hero-head">
-        <nav className="navbar is-black">
-          <div className="container">
-            <div className="navbar-brand">
-              <a className="navbar-item" href="../">
-                <img
-                  src="http://res.freestockphotos.biz/pictures/11/11921-illustration-of-a-foamy-mug-of-beer-pv.png"
-                  width="auto"
-                  height="110px"
-                  alt="Logo"
-                />
+      <nav className="navbar is-white">
+        <div className="container">
+          <div className="navbar-brand">
+            <a className="navbar-item" href="../">
+              <img
+                src="http://res.freestockphotos.biz/pictures/11/11921-illustration-of-a-foamy-mug-of-beer-pv.png"
+                width="auto"
+                height="110px"
+                alt="Logo"
+              />
+            </a>
+            <nav
+              className="navbar-burger"
+              data-target="navbarMenu"
+              onClick={() => {
+                let toggle = document.querySelector(".nav-toggle");
+                let menu = document.querySelector(".navbar-menu");
+                toggle.classList.toggle("is-active");
+                menu.classList.toggle("is-active");
+              }}
+            >
+              <span className="nav-toggle" />
+              <span className="nav-toggle" />
+              <span className="nav-toggle" />
+              <span className="nav-toggle" />
+              <span className="nav-toggle" />
+            </nav>
+          </div>
+
+          <div id="navbarMenu" className="navbar-menu">
+            <div className="navbar-end">
+              <Link className="navbar-item" to="/">
+                Home
+              </Link>
+
+              <Link className="navbar-item" to="/random">
+                Random
+              </Link>
+              <Link className="navbar-item" to="/Favorites">
+                Favorites
+              </Link>
+              <Link className="navbar-item" to="/cart">
+                Cart
+              </Link>
+              <a className="navbar-item " onClick={this.handleLogin}>
+                {this.state.userid.length !== 0 ? (
+                  <a href="/api/logout"> Logout </a>
+                ) : (
+                  "Login"
+                )}
               </a>
-              <nav className="navbar-burger" data-target="navbarMenu">
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-              </nav>
-            </div>
-
-            <div id="navbarMenu" className="navbar-menu">
-              <div className="navbar-end">
-                <Link className="navbar-item" to="/">
-                  Home
-                </Link>
-
-                <Link className="navbar-item" to="/random">
-                  Random
-                </Link>
-                <Link className="navbar-item" to="/Favorites">
-                  Favorites
-                </Link>
-                <Link className="navbar-item" to="/cart">
-                  Cart
-                </Link>
-                <a className="navbar-item " onClick={this.handleLogin}>
-                  {this.state.userid.length !== 0 ? (
-                    <a href="http://localhost:3001/api/logout"> Logout </a>
-                  ) : (
-                    "Login"
-                  )}
-                </a>
-              </div>
             </div>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     );
   }
 }

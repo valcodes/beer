@@ -87,5 +87,13 @@ module.exports = {
       .getShoppingCart([req.user.id])
       .then(shoppingcart => res.status(200).send(shoppingcart))
       .catch(() => res.status(500).send());
+  },
+
+  getPopular: (req, res, next) => {
+    const db = req.app.get("db");
+    db
+      .getMostPopular(req)
+      .then(favorites => res.status(200).send(favorites))
+      .catch(() => res.status(500).send());
   }
 };
