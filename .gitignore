@@ -1,4 +1,6 @@
-
+.env
+.env.prod
+config.js
 
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
@@ -26,4 +28,5 @@ yarn-error.log*
 .env
 .env.prod
 config.js
+
 
