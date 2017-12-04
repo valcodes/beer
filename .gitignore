@@ -23,8 +23,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/.env
-/.env.prod
+.env
+.env.prod
 config.js
 
 
