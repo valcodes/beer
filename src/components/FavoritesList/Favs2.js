@@ -194,11 +194,7 @@ export default class Random2 extends Component {
               </a>
             </li>
             <li>
-              <a
-                className="pagination-link"
-                className="pagination-link is-current"
-                aria-current="page"
-              >
+              <a className="pagination-link is-current" aria-current="page">
                 2
               </a>
             </li>

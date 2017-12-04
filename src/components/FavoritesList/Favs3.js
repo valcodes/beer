@@ -203,7 +203,6 @@ export default class Random3 extends Component {
             </li>
             <li>
               <a
-                className="pagination-link"
                 aria-label="Page 3"
                 className="pagination-link is-current"
                 href="/random3"
