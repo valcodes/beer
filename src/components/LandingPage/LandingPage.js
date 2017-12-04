@@ -29,7 +29,7 @@ export default class LandingPage extends Component {
           <div className="hero-head" />
 
           <div className="hero-body">
-            <div className="container has-text-centered">
+            <div className="container has-text-centered" id="shadow">
               <h1 className="title">Find your new favorite beer here</h1>
               <h2 className="subtitle">
                 Explore various styles and find your new favorite
@@ -98,9 +98,9 @@ export default class LandingPage extends Component {
                     <p>
                       Buying beer used to involve as much choice as shopping in
                       a Soviet supermarket, and Budweiser and Miller loved it
-                      that xy. But these days, with the explosion in craft beer,
-                      the selection is overwhelming. Choosing a beer can be
-                      stressful enough to drive you to drink! Here are
+                      that way. But these days, with the explosion in craft
+                      beer, the selection is overwhelming. Choosing a beer can
+                      be stressful enough to drive you to drink! Here are
                       suggestions to help you find the right beer.
                     </p>
                     <p>
@@ -118,7 +118,7 @@ export default class LandingPage extends Component {
             <div className="intro column is-8 is-offset-2">
               {/* <h2 className="title">Food pairing</h2> */}
               <br />
-              <p class="subtitle" id="no-shadow">
+              <p className="subtitle" id="no-shadow">
                 <em>
                   “You can't be a real country unless you have a beer and an
                   airline - it helps if you have some kind of football team, or
@@ -133,7 +133,9 @@ export default class LandingPage extends Component {
         </section>
         <footer className="footer">
           <div className="content has-text-centered">
-            <p className="title">Bottoms up!</p>
+            <p className="title" id="shadow">
+              Bottoms up!
+            </p>
           </div>
         </footer>
       </div>
