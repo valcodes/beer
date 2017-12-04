@@ -4,6 +4,7 @@ const cors = require("cors");
 const session = require("express-session");
 const massive = require("massive");
 const passport = require("passport");
+const axios = require("axios");
 require("dotenv").config();
 const Auth0Strategy = require("passport-auth0");
 // const connectionString = require("./config").massive;
@@ -108,6 +109,20 @@ app.post("/api/shoppingcart", controller.createCart);
 app.delete("/api/shoppingcart", controller.deleteCart);
 app.get("/api/shoppingcart", controller.getCart);
 app.get("/api/popular", controller.getPopular);
+
+// app.get("/api/getbeer", (req, res) => {
+//   console.log("server");
+//   axios
+//     .get(
+//       `http://api.brewerydb.com/v2/beers/?key=${
+//         process.env.API_KEY
+//       }&abv=+10&hasLabels=Y`
+//     )
+//     .then(response => {
+//       return res.send(response.data);
+//     })
+//     .catch(console.log);
+// });
 
 const path = require("path");
 app.get("*", (req, res) => {

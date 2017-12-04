@@ -25,8 +25,7 @@
   margin-bottom: 10vh;
   font-size: 30px;
 }
-.title,
-.subtitle {
+#shadow {
   text-shadow: 2px 2px #5f5e5c9c;
 }
 #no-shadow p {
@@ -34,6 +33,12 @@
   text-shadow: none;
   font-size: 30px;
 }
+/* .card-content {
+  border: 1px solid rgba(235, 187, 158, 0.63);
+} */
+/* .main-page {
+  background: url("https://i.pinimg.com/originals/71/c0/70/71c070eae02efb0dad6afa3a6c88a70a.jpg");
+} */
 .footer {
   background: url("https://secondcropcreative.com/cinemagraphs/images/beer-bubbles.gif");
   background-attachment: fixed;
@@ -49,7 +54,7 @@
   width: auto;
 }
 .background {
-  /* background: url("https://media.giphy.com/media/RyrAgBKLtNdGU/giphy.gif"); */
+  background: url("https://i.pinimg.com/originals/71/c0/70/71c070eae02efb0dad6afa3a6c88a70a.jpg");
   /* background-size: cover; */
   /* background-repeat: no-repeat; */
   background-color: #00bc9d1c;
@@ -57,6 +62,7 @@
 .beer-display {
   position: relative;
   display: flex;
+  align-content: center;
   justify-content: space-around;
   flex-wrap: wrap;
   font-family: "Source Code Pro", monospace;
@@ -68,8 +74,8 @@
   margin-left: 15vh;
   margin-right: 15vh;
   border: 1px rgba(128, 128, 128, 0.082) solid;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  /* margin-top: 5vh;
+  margin-bottom: 5vh; */
 }
 
 .beer-display-fixed {
@@ -187,5 +193,6 @@
   color: white;
   background: url("https://i.imgur.com/iArPfQL.gif");
   background-size: cover;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: bold;
 }
