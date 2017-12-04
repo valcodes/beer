@@ -32,7 +32,7 @@ export default class LandingPage extends Component {
             <div className="container has-text-centered" id="shadow">
               <h1 className="title">Find your new favorite beer here</h1>
               <h2 className="subtitle">
-                Explore various styles and find your new favorite
+                Explore various styles and find your new favorite!
               </h2>
             </div>
           </div>
