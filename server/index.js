@@ -110,19 +110,19 @@ app.delete("/api/shoppingcart", controller.deleteCart);
 app.get("/api/shoppingcart", controller.getCart);
 app.get("/api/popular", controller.getPopular);
 
-// app.get("/api/getbeer", (req, res) => {
-//   console.log("server");
-//   axios
-//     .get(
-//       `http://api.brewerydb.com/v2/beers/?key=${
-//         process.env.API_KEY
-//       }&abv=+10&hasLabels=Y`
-//     )
-//     .then(response => {
-//       return res.send(response.data);
-//     })
-//     .catch(console.log);
-// });
+app.get("/api/getbeer", (req, res, next) => {
+  console.log("server");
+  axios
+    .get(
+      `http://api.brewerydb.com/v2/beers/?key=${
+        process.env.API_KEY
+      }&abv=+10&hasLabels=Y`
+    )
+    .then(response => {
+      return res.send(response.data);
+    })
+    .catch(console.log);
+});
 
 const path = require("path");
 app.get("*", (req, res) => {
