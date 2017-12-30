@@ -52,13 +52,14 @@ export default class Newapi extends Component {
       .post("/api/favorites", {
         userid: this.state.userid,
         id: beer.id,
-        image_url: beer.image_url,
-        description: beer.description,
-        food_pairing: beer.food_pairing,
-        brewers_tips: beer.brewers_tips,
-        name: beer.name
+        image_url: beer.labels.medium,
+        description: beer.description || beer.style.description,
+        breweryname: beer.breweries[0].name,
+        brewerydesc: beer.breweries[0].description,
+        beername: beer.nameDisplay
       })
       .then(response => {
+        console.log(response);
         this.setState({ favId: parseInt(response.data[0].beerid, 10) });
       })
       .catch(console.log);
@@ -71,7 +72,7 @@ export default class Newapi extends Component {
         active: false,
         modal: "is-active",
         beerimg: beer.labels.medium,
-        description: beer.style.description,
+        description: beer.description || beer.style.description,
         brewery_name: beer.breweries[0].name,
         brewery_desc: beer.breweries[0].description,
         beername: beer.nameDisplay
