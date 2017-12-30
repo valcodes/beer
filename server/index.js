@@ -116,7 +116,7 @@ app.get("/api/getbeer", (req, res, next) => {
     .get(
       `http://api.brewerydb.com/v2/beers/?key=${
         process.env.API_KEY
-      }&abv=+10&hasLabels=Y`
+      }&hasLabels=Y&withBreweries=Y`
     )
     .then(response => {
       return res.send(response.data);

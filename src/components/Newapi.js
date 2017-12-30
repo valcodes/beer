@@ -13,8 +13,8 @@ export default class Newapi extends Component {
       userid: [],
       beerimg: [],
       beerdesc: [],
-      foodpairing: [],
-      brewerstips: [],
+      brewery_name: [],
+      brewery_desc: [],
       beername: [],
       disabled: false,
       active: true,
@@ -72,8 +72,8 @@ export default class Newapi extends Component {
         modal: "is-active",
         beerimg: beer.labels.medium,
         description: beer.style.description,
-        food_pairing: beer.food_pairing,
-        brewers_tips: beer.brewers_tips,
+        brewery_name: beer.breweries[0].name,
+        brewery_desc: beer.breweries[0].description,
         beername: beer.nameDisplay
       });
     } else {
@@ -148,17 +148,17 @@ export default class Newapi extends Component {
             <section className="modal-card-body">
               <img className="beer-img" alt="beer" src={this.state.beerimg} />
               <p className="popups">
-                <strong>Description:</strong> {this.state.description}
+                <strong> Details:</strong> {this.state.description}
               </p>
               <br />
 
               <p className="popups">
-                <strong>Food pairing:</strong> {this.state.food_pairing}
+                <strong>Brewery Name:</strong> {this.state.brewery_name}
               </p>
               <br />
 
               <p className="popups">
-                <strong>Brewers tips:</strong> {this.state.brewers_tips}
+                <strong>Brewery Details:</strong> {this.state.brewery_desc}
               </p>
             </section>
             <footer className="modal-card-foot" />
