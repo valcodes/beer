@@ -50,8 +50,8 @@ module.exports = {
       userid,
       beerimg,
       beerdesc,
-      foodpairing,
-      brewerstips,
+      breweryname,
+      brewerydesc,
       beername,
       beerprice
     } = req.body;
@@ -62,8 +62,8 @@ module.exports = {
         userid,
         beerimg,
         beerdesc,
-        foodpairing,
-        brewerstips,
+        breweryname,
+        brewerydesc,
         beername,
         beerprice
       ])

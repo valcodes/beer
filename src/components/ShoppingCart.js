@@ -67,7 +67,7 @@ export default class ShoppingCart extends Component {
               />
             </div>
           </div>
-          <div className="column is-auto">{element.brewerstips}</div>
+          <div className="column is-auto">{element.beerdesc}</div>
 
           <div className="column is-one-fifth" id="checkout-remove">
             <button
