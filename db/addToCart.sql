@@ -1,1 +1,1 @@
- INSERT INTO shoppingcart (beerid, userid, beerimg, beerdesc, foodpairing, brewerstips, beername, beerprice) values($1,$2, $3, $4, $5, $6, $7, $8) RETURNING beerid, userid, beerimg, beerdesc, foodpairing, brewerstips, beername, beerprice
+ INSERT INTO shoppingcart (beerid, userid, beerimg, beerdesc, breweryname, brewerydesc, beername, beerprice) values($1,$2, $3, $4, $5, $6, $7, $8) RETURNING beerid, userid, beerimg, beerdesc, breweryname, brewerydesc, beername, beerprice

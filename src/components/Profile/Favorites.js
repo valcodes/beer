@@ -12,8 +12,8 @@ export default class Favorites extends Component {
       modal: "modal",
       image_url: [],
       description: [],
-      food_pairing: [],
-      brewers_tips: [],
+      breweryname: [],
+      brewerydesc: [],
       name: [],
       selectbeer: {}
     };
@@ -42,8 +42,8 @@ export default class Favorites extends Component {
         userid: beer.userid,
         beerimg: beer.beerimg,
         beerdesc: beer.beerdesc,
-        foodpairing: beer.foodpairing,
-        brewerstips: beer.brewerstips,
+        breweryname: beer.breweryname,
+        brewerydesc: beer.brewerydesc,
         beername: beer.beername,
         beerprice: Math.floor(Math.random() * 13 + 3)
       })
@@ -67,7 +67,7 @@ export default class Favorites extends Component {
       });
   }
   toggleModal = beer => {
-    // console.log(beer);
+    console.log(beer);
     if (this.state.active) {
       this.setState({
         active: false,
@@ -75,8 +75,8 @@ export default class Favorites extends Component {
         selectbeer: beer,
         image_url: beer.beerimg,
         description: beer.beerdesc,
-        food_pairing: beer.foodpairing,
-        brewers_tips: beer.brewerstips,
+        breweryname: beer.breweryname,
+        brewerydesc: beer.brewerydesc,
         name: beer.beername
       });
     } else {
@@ -138,21 +138,21 @@ export default class Favorites extends Component {
                   <img
                     className="beer-img"
                     alt="beer"
-                    src="http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
+                    src={this.state.image_url}
                   />
                   <p className="popups">
-                    <strong>Description:</strong> {this.state.description}
+                    <strong>Details:</strong> {this.state.description}
                   </p>
                   <br />
 
                   <p className="popups">
-                    <strong>Food pairing:</strong> {this.state.food_pairing}
+                    <strong>Brewery name:</strong> {this.state.breweryname}
                   </p>
                   <br />
 
                   <p className="popups">
-                    <strong>Brewers tips: </strong>
-                    {this.state.brewers_tips}
+                    <strong>Brewery details: </strong>
+                    {this.state.brewerydesc}
                   </p>
                 </section>
                 <footer className="modal-card-foot">

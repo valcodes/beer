@@ -11,11 +11,11 @@ import Random3 from "./components/FavoritesList/Favs3";
 export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
-    {/* <Route path="/random" component={Random} /> */}
+    <Route path="/random" component={Random} />
     <Route path="/Favorites" component={Favorites} />
     <Route path="/cart" component={ShoppingCart} />
-    <Route path="/new" component={Newapi} />
-    {/* <Route path="/random2" component={Random2} />
-    <Route path="/random3" component={Random3} /> */}
+    {/* <Route path="/new" component={Newapi} /> */}
+    <Route path="/random2" component={Random2} />
+    <Route path="/random3" component={Random3} />
   </Switch>
 );

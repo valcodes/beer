@@ -116,7 +116,20 @@ app.get("/api/getbeer", (req, res, next) => {
     .get(
       `http://api.brewerydb.com/v2/beers/?key=${
         process.env.API_KEY
-      }&abv=+10&hasLabels=Y`
+      }&hasLabels=Y&withBreweries=Y`
+    )
+    .then(response => {
+      return res.send(response.data);
+    })
+    .catch(console.log);
+});
+app.get("/api/searchbeer", (req, res, next) => {
+  console.log("server");
+  axios
+    .get(
+      `http://api.brewerydb.com/v2/beers/?key=${
+        process.env.API_KEY
+      }&hasLabels=Y&withBreweries=Y&q=${params}`
     )
     .then(response => {
       return res.send(response.data);

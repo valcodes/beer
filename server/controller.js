@@ -6,9 +6,9 @@ module.exports = {
       userid,
       image_url,
       description,
-      food_pairing,
-      brewers_tips,
-      name
+      breweryname,
+      brewerydesc,
+      beername
     } = req.body;
 
     db
@@ -17,9 +17,9 @@ module.exports = {
         userid,
         image_url,
         description,
-        food_pairing,
-        brewers_tips,
-        name
+        breweryname,
+        brewerydesc,
+        beername
       ])
       .then(favorites => res.status(200).send(favorites))
       .catch(err => res.status(500).send(err));
@@ -50,8 +50,8 @@ module.exports = {
       userid,
       beerimg,
       beerdesc,
-      foodpairing,
-      brewerstips,
+      breweryname,
+      brewerydesc,
       beername,
       beerprice
     } = req.body;
@@ -62,8 +62,8 @@ module.exports = {
         userid,
         beerimg,
         beerdesc,
-        foodpairing,
-        brewerstips,
+        breweryname,
+        brewerydesc,
         beername,
         beerprice
       ])
