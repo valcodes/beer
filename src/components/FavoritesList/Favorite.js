@@ -30,11 +30,7 @@ export default class Favorite extends Component {
 
   componentDidMount() {
     axios
-<<<<<<< HEAD
-      .get("https://api.punkapi.com/v2/beers")
-=======
       .get("http://localhost:3001/api/getbeer")
->>>>>>> be730a87fe1069c3c3f5c94034ff4f22535efb39
       .then(results => {
         console.log(results.data);
         this.setState({
