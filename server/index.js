@@ -123,15 +123,16 @@ app.get("/api/getbeer", (req, res, next) => {
     })
     .catch(console.log);
 });
-app.get("/api/searchbeer", (req, res, next) => {
-  console.log("server");
+app.get("/api/searchbeer/:search", (req, res, next) => {
+  console.log(req.params.search);
   axios
     .get(
-      `http://api.brewerydb.com/v2/beers/?key=${
-        process.env.API_KEY
-      }&hasLabels=Y&withBreweries=Y&q=${params}`
+      `http://api.brewerydb.com/v2/search?q=${
+        req.params.search
+      }&type=beer&hasLabels=Y&withBreweries=Y&key=${process.env.API_KEY}`
     )
     .then(response => {
+      console.log(response.data);
       return res.send(response.data);
     })
     .catch(console.log);

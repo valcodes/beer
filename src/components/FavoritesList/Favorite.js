@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Newapi extends Component {
+export default class Favorite extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      beertest: [],
       beer: [],
       beerId: 0,
       favorites: [],
@@ -44,27 +45,28 @@ export default class Newapi extends Component {
     });
   }
   handleSearch(val) {
+    console.log(this.state.search);
     this.setState({
       search: val
     });
   }
-  searchSubmit(params) {
+  searchSubmit(search) {
     axios
-      .get(`http://localhost:3001/api/searchbeer${params}`)
-      .then(results => {
-        console.log(results.data);
-        this.setState({
-          beer: results.data.data
-        });
+      .get(`http://localhost:3001/api/searchbeer/${search}`)
+      .then(response => {
+        this.setState({ beer: response.data.data });
       })
       .catch(console.log);
   }
+
   addToFavs(beer) {
     axios
       .post("/api/favorites", {
         userid: this.state.userid,
         id: beer.id,
-        image_url: beer.labels.medium,
+        image_url: !beer.labels
+          ? "http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
+          : beer.labels.medium,
         description: beer.description || beer.style.description,
         breweryname: beer.breweries[0].name,
         brewerydesc: beer.breweries[0].description,
@@ -83,7 +85,9 @@ export default class Newapi extends Component {
       this.setState({
         active: false,
         modal: "is-active",
-        beerimg: beer.labels.medium,
+        beerimg: !beer.labels
+          ? "http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
+          : beer.labels.medium,
         description: beer.description || beer.style.description,
         brewery_name: beer.breweries[0].name,
         brewery_desc: beer.breweries[0].description,
@@ -95,7 +99,7 @@ export default class Newapi extends Component {
   };
 
   render() {
-    // console.log(this.state.beer);
+    console.log(this.state.beertest);
 
     const beers = this.state.beer.map((beer, index) => {
       //   console.log(beer);
@@ -124,14 +128,25 @@ export default class Newapi extends Component {
               <h2>{beer.nameDisplay}</h2>
             </li>
 
-            <li>
-              <img
-                onClick={() => this.toggleModal(beer)}
-                src={beer.labels.large}
-                className="responsive-image"
-                alt="beer"
-              />
-            </li>
+            {!beer.labels ? (
+              <li>
+                <img
+                  onClick={() => this.toggleModal(beer)}
+                  src="http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
+                  className="responsive-image"
+                  alt="http://lorempixel.com/300/300/food/"
+                />
+              </li>
+            ) : (
+              <li>
+                <img
+                  onClick={() => this.toggleModal(beer)}
+                  src={beer.labels.large}
+                  className="responsive-image"
+                  alt="http://lorempixel.com/300/300/food/"
+                />
+              </li>
+            )}
           </ul>
         </div>
       );
@@ -143,20 +158,29 @@ export default class Newapi extends Component {
           <div className="beer-display-fixed">{beers}</div>
         ) : (
           <div>
-            <form>
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                // e.stopPropagation();
+              }}
+            >
               <input
                 className="input is-large is-primary is-rounded"
                 placeholder="Search"
                 onChange={e => this.handleSearch(e.target.value)}
                 id="searchbar"
-                onSubmit={() => this.searchSubmit(this.state.search)}
+                onSubmit={val => this.searchSubmit(this.state.search)}
               />
+              <button
+                type="button"
+                className="button is-warning"
+                onClick={val => this.searchSubmit(this.state.search)}
+              >
+                Search
+              </button>
             </form>
 
-            <div className="beer-display">
-              {beers}
-              {/* {console.log(this.state.beer)} */}
-            </div>
+            <div className="beer-display">{beers}</div>
           </div>
         )}
         <div className={this.state.modal}>
