@@ -6,13 +6,223 @@
 .navbar {
   display: flex;
 }
-
-.tile {
-  display: flex;
+.navbar a {
+  color: black;
 }
-section {
-  background: url("https://i.imgur.com/l4MlYc3.gif");
+/* .tile {
+  display: flex;
+} */
+.hero-body {
+  /* background: url("http://theplate.nationalgeographic.com/files/2015/07/1beersausage.gif"); */
+  background: url("https://secondcropcreative.com/cinemagraphs/images/beer-bubbles.gif");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: cover;
+}
+.bottom-main {
+  color: black;
+  text-shadow: none;
+  margin-bottom: 10vh;
+  font-size: 30px;
+}
+#shadow {
+  text-shadow: 2px 2px #5f5e5c9c;
+}
+#shadow h1 {
+  font-size: 50px;
+}
+#no-shadow p {
+  color: black;
+  text-shadow: none;
+  font-size: 30px;
+}
+/* .card-content {
+  border: 1px solid rgba(235, 187, 158, 0.63);
+} */
+/* .main-page {
+  background: url("https://i.pinimg.com/originals/71/c0/70/71c070eae02efb0dad6afa3a6c88a70a.jpg");
+} */
+.footer {
+  background: url("https://secondcropcreative.com/cinemagraphs/images/beer-bubbles.gif");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.footer p {
+  color: white;
+}
+.responsive-image {
+  height: 250px;
+  width: auto;
+}
+.background {
+  background: url("https://i.pinimg.com/originals/71/c0/70/71c070eae02efb0dad6afa3a6c88a70a.jpg");
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  background-color: #00bc9d1c;
+}
+.beer-display {
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-family: "Source Code Pro", monospace;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  background-color: rgba(255, 255, 255, 0.932);
+  background-blend-mode: screen;
+  margin-left: 15vh;
+  margin-right: 15vh;
+  border: 1px rgba(128, 128, 128, 0.082) solid;
+  /* margin-top: 5vh;
+  margin-bottom: 5vh; */
+}
+
+.beer-display-fixed {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-family: "Source Code Pro", monospace;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  /* background-color: white; */
+}
+
+.beer-container {
+  margin: 5vh 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: break-word;
+}
+.beer-container h2 {
+  max-width: 150px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-weight: bold;
+  margin-top: 2vh;
+}
+
+#searchbar {
+  max-width: 350px;
+  margin: 2vh 2vh 2vh 15vh;
+  align-content: center;
+}
+.pagination {
+  margin-bottom: 3vh;
+}
+/* .navbar-item {
+  font-weight: bold;
+}
+.navbar-item a {
+  color: black;
+} */
+
+.modal {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.modal-card {
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  margin: auto;
+  width: 60%;
+  height: auto;
+  background-color: white;
+  border: solid gray 1px;
+  border-radius: 4px;
+}
+
+.modal-card-body p {
+  /* font-weight: bold; */
+  font-size: 20px;
+}
+
+.beer-img {
+  width: auto;
+  height: 200px;
+}
+
+.column img {
+  height: 10vh;
+  width: auto;
+}
+#two {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 6vh;
+}
+
+.go-buy-something {
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 102px);
+}
+
+#remove {
+  display: flex;
+  margin: 3vh;
+  margin-top: 5vh;
+  height: 150px;
+  overflow: auto;
+  /* word-wrap: break-word; */
+}
+#checkout-remove {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5vh 5vh;
+  border: 1 px gray;
+  background-color: rgba(128, 128, 128, 0.055);
+  /* background: url("https://i.imgur.com/iArPfQL.gif"); */
+  background: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/d48fc451222843.58e64d0ee33f7.gif");
+  background-size: cover;
+  color: white;
+  font-weight: bold;
+}
+
+.checkout-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 102px);
+  color: white;
+  background: url("https://i.imgur.com/iArPfQL.gif");
+  background-size: cover;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.card {
+  border-radius: 7px;
+  border: 2px solid #fff;
+}
+
+.button {
+  border-radius: 10px;
+}
+
+.is-alternative {
+  background-color: #f7f7f7;
+}
+
+@media (max-width: 376px) {
+  .responsive-image {
+    width: 100%;
+    height: auto;
+  }
 }
 .bubbles {
   background: url("https://media.giphy.com/media/b5EVtW4zARZo4/giphy.gif");

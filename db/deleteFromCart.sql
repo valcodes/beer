@@ -1,0 +1,1 @@
+DELETE FROM shoppingcart WHERE beerid = $1 and userid=$2
