@@ -34,7 +34,7 @@
     "deploy": "now --public --dotenv=.env.prod -d"
   },
   "now": {
-    "alias": "awesome-beer"
+    "alias": "favbeer.com"
   },
 
   "proxy": "http://localhost:3001"
