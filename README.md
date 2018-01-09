@@ -1,9 +1,6 @@
-LIVE HOSTED PAGE: https://awesome-beer.now.sh/
-
+LIVE HOSTED PAGE: https://www.favbeer.com
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-
-  
 #beer
 .
