@@ -56,10 +56,14 @@
   height: 250px;
   width: auto;
 }
+.field {
+  margin-left: 15vh;
+  margin-right: 15vh;
+}
 .background {
   background: url("https://i.pinimg.com/originals/71/c0/70/71c070eae02efb0dad6afa3a6c88a70a.jpg");
-  /* background-size: cover; */
-  /* background-repeat: no-repeat; */
+  /* background-size: cover;
+  background-repeat: no-repeat; */
   background-color: #00bc9d1c;
 }
 .beer-display {
@@ -223,4 +227,8 @@
     width: 100%;
     height: auto;
   }
+}
+.bubbles {
+  background: url("https://media.giphy.com/media/b5EVtW4zARZo4/giphy.gif");
+  background-size: cover;
 }

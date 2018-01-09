@@ -6,6 +6,7 @@ export default class Favorite extends Component {
     super(props);
 
     this.state = {
+      nobeer: [],
       beertest: [],
       beer: [],
       beerId: 0,
@@ -30,7 +31,7 @@ export default class Favorite extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3001/api/getbeer")
+      .get("/api/getbeer")
       .then(results => {
         console.log(results.data);
         this.setState({
@@ -39,7 +40,7 @@ export default class Favorite extends Component {
       })
       .catch(console.log);
 
-    axios.get("http://localhost:3001/api/me").then(response => {
+    axios.get("/api/me").then(response => {
       if (!response.data) this.setState({ userid: null });
       else this.setState({ userid: response.data.id });
     });
@@ -52,9 +53,13 @@ export default class Favorite extends Component {
   }
   searchSubmit(search) {
     axios
-      .get(`http://localhost:3001/api/searchbeer/${search}`)
+      .get(`/api/searchbeer/${search}`)
       .then(response => {
-        this.setState({ beer: response.data.data });
+        console.log(response.data.data);
+        if (response.data.data === undefined) {
+          alert("Beer not found, please try again");
+          window.location.href = "/random";
+        } else this.setState({ beer: response.data.data });
       })
       .catch(console.log);
   }
@@ -65,7 +70,7 @@ export default class Favorite extends Component {
         userid: this.state.userid,
         id: beer.id,
         image_url: !beer.labels
-          ? "http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
+          ? "http://wfarm4.dataknet.com/static/resources/icons/set140/3c69124d.png"
           : beer.labels.medium,
         description: beer.description || beer.style.description,
         breweryname: beer.breweries[0].name,
@@ -86,7 +91,7 @@ export default class Favorite extends Component {
         active: false,
         modal: "is-active",
         beerimg: !beer.labels
-          ? "http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
+          ? "http://wfarm4.dataknet.com/static/resources/icons/set140/3c69124d.png"
           : beer.labels.medium,
         description: beer.description || beer.style.description,
         brewery_name: beer.breweries[0].name,
@@ -132,9 +137,9 @@ export default class Favorite extends Component {
               <li>
                 <img
                   onClick={() => this.toggleModal(beer)}
-                  src="http://www.derekphillipsphotography.co.uk/images/cinemagraph/BeerPour.gif"
+                  src="http://wfarm4.dataknet.com/static/resources/icons/set140/3c69124d.png"
                   className="responsive-image"
-                  alt="http://lorempixel.com/300/300/food/"
+                  alt="beer"
                 />
               </li>
             ) : (
@@ -143,7 +148,7 @@ export default class Favorite extends Component {
                   onClick={() => this.toggleModal(beer)}
                   src={beer.labels.large}
                   className="responsive-image"
-                  alt="http://lorempixel.com/300/300/food/"
+                  alt="beer"
                 />
               </li>
             )}
@@ -158,27 +163,29 @@ export default class Favorite extends Component {
           <div className="beer-display-fixed">{beers}</div>
         ) : (
           <div>
-            <form
+            <div
+              className="field has-addons"
               onSubmit={e => {
                 e.preventDefault();
-                // e.stopPropagation();
               }}
             >
-              <input
-                className="input is-large is-primary is-rounded"
-                placeholder="Search"
-                onChange={e => this.handleSearch(e.target.value)}
-                id="searchbar"
-                onSubmit={val => this.searchSubmit(this.state.search)}
-              />
-              <button
-                type="button"
-                className="button is-warning"
-                onClick={val => this.searchSubmit(this.state.search)}
-              >
-                Search
-              </button>
-            </form>
+              <div className="control is-expanded">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="search"
+                  onChange={e => this.handleSearch(e.target.value)}
+                />
+              </div>
+              <div className="control">
+                <a
+                  className="button is-warning"
+                  onClick={val => this.searchSubmit(this.state.search)}
+                >
+                  Search
+                </a>
+              </div>
+            </div>
 
             <div className="beer-display">{beers}</div>
           </div>
