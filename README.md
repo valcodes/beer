@@ -1,6 +1,6 @@
 #Favorite Beer
 
-favbeer.com is a mock e-commerce app utilizing third party API
+www.favbeer.com is a mock e-commerce app utilizing third party API
 
 #Features
 
