@@ -1,4 +1,4 @@
-#Favorite Beer
+
 
 www.favbeer.com is a mock e-commerce app utilizing third party API
 
