@@ -2,7 +2,7 @@
 
 www.favbeer.com is a mock e-commerce app utilizing third party API
 
-#Features
+# Features
 
 Thousands of beer brands and breweries accessible through brewery.db API
 Users are able to add items to favorites for future reference 
