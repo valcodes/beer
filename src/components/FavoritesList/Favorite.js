@@ -33,7 +33,6 @@ export default class Favorite extends Component {
     axios
       .get("/api/getbeer")
       .then(results => {
-        console.log(results.data);
         this.setState({
           beer: results.data.data
         });
@@ -46,7 +45,6 @@ export default class Favorite extends Component {
     });
   }
   handleSearch(val) {
-    console.log(this.state.search);
     this.setState({
       search: val
     });
@@ -55,7 +53,6 @@ export default class Favorite extends Component {
     axios
       .get(`/api/searchbeer/${search}`)
       .then(response => {
-        console.log(response.data.data);
         if (response.data.data === undefined) {
           alert("Beer not found, please try again");
           window.location.href = "/random";
@@ -78,14 +75,12 @@ export default class Favorite extends Component {
         beername: beer.nameDisplay
       })
       .then(response => {
-        console.log(response);
         this.setState({ favId: response.data[0].beerid });
       })
       .catch(console.log);
   }
 
   toggleModal = beer => {
-    console.log(beer);
     if (this.state.active) {
       this.setState({
         active: false,
@@ -104,10 +99,7 @@ export default class Favorite extends Component {
   };
 
   render() {
-    console.log(this.state.beertest);
-
     const beers = this.state.beer.map((beer, index) => {
-      //   console.log(beer);
       return (
         <div className="beer-container" key={index}>
           <ul>

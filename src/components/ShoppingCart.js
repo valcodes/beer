@@ -25,7 +25,6 @@ export default class ShoppingCart extends Component {
       else this.setState({ userid: response.data.id });
     });
     axios.get("/api/shoppingcart").then(response => {
-      // console.log(response);
       this.setState({
         beer: response.data
       });

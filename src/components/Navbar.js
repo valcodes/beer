@@ -22,7 +22,6 @@ export default class Navbar extends Component {
   }
 
   render() {
-    // console.log(this.state.userid);
     return (
       <nav className="navbar is-white">
         <div className="container">
