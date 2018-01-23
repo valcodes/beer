@@ -13,7 +13,6 @@ export default class LandingPage extends Component {
   }
   componentDidMount() {
     axios.get("/api/popular").then(response => {
-      // console.log(response.data);
       this.setState({
         beername: response.data[0].beername,
         beerdesc: response.data[0].beerdesc
@@ -22,7 +21,6 @@ export default class LandingPage extends Component {
   }
 
   render() {
-    // console.log(this.state.beername);
     return (
       <div className="main-page">
         <section className="hero is-info is-medium is-bold">

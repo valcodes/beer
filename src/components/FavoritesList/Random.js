@@ -18,19 +18,11 @@ export default class Random extends Component {
 
   render() {
     return (
-      // <div>
-      // {this.state.userid.length === 0 ? (
-      // <div className="checkout-user">
-      //   <h1>You must be logged in in order to use this feature</h1>
-      // </div>
-      // ) : (
       <div>
         <div>
           <Favorite />
         </div>
       </div>
-      // )}
-      // </div>
     );
   }
 }

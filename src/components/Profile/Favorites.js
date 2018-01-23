@@ -29,13 +29,11 @@ export default class Favorites extends Component {
     });
 
     axios.get("/api/favorites").then(response => {
-      // console.log(response);
       this.setState({ beer: response.data });
     });
   }
 
   addToCart(beer) {
-    // console.log(beer);
     axios
       .post("/api/shoppingcart", {
         beerid: beer.beerid,
@@ -47,9 +45,7 @@ export default class Favorites extends Component {
         beername: beer.beername,
         beerprice: Math.floor(Math.random() * 13 + 3)
       })
-      .then(response => {
-        // console.log(response);
-      })
+      .then(response => {})
       .then(alert("Added to Cart"))
       .catch(console.log);
   }
@@ -67,7 +63,6 @@ export default class Favorites extends Component {
       });
   }
   toggleModal = beer => {
-    console.log(beer);
     if (this.state.active) {
       this.setState({
         active: false,

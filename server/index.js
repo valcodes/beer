@@ -63,7 +63,6 @@ passport.use(
               .get("db")
               .createUserByAuth([profile.id, profile.displayName])
               .then(created => {
-                // console.log(created);
                 return done(null, created[0]);
               });
           } else {
@@ -111,7 +110,6 @@ app.get("/api/shoppingcart", controller.getCart);
 app.get("/api/popular", controller.getPopular);
 
 app.get("/api/getbeer", (req, res, next) => {
-  console.log("server");
   axios
     .get(
       `http://api.brewerydb.com/v2/beers/?key=${
@@ -124,7 +122,6 @@ app.get("/api/getbeer", (req, res, next) => {
     .catch(console.log);
 });
 app.get("/api/searchbeer/:search", (req, res, next) => {
-  console.log(req.params.search);
   axios
     .get(
       `http://api.brewerydb.com/v2/search?q=${
@@ -132,7 +129,6 @@ app.get("/api/searchbeer/:search", (req, res, next) => {
       }&type=beer&hasLabels=Y&withBreweries=Y&key=${process.env.API_KEY}`
     )
     .then(response => {
-      console.log(response.data);
       return res.send(response.data);
     })
     .catch(console.log);

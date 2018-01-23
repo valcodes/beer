@@ -12,12 +12,10 @@ const fromDollarToCent = amount => amount * 100;
 const successPayment = data => {
   alert("Payment Successful");
   window.location.href = "/";
-  console.log(data);
 };
 
 const errorPayment = data => {
   alert("Payment Error");
-  console.log(data);
 };
 
 const onToken = (amount, description) => token =>
